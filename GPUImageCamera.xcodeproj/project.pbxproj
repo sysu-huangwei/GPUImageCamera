@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47476E547884AF2C766E7672 /* libPods-GPUImageCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 379CAF6597E65FCFF1462E0A /* libPods-GPUImageCamera.a */; };
 		C522479C221FEC9100FBE21D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C522479B221FEC9100FBE21D /* AppDelegate.m */; };
 		C522479F221FEC9100FBE21D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C522479E221FEC9100FBE21D /* ViewController.m */; };
 		C52247A2221FEC9100FBE21D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C52247A0221FEC9100FBE21D /* Main.storyboard */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		379CAF6597E65FCFF1462E0A /* libPods-GPUImageCamera.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GPUImageCamera.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE6314E5A6BE162BFC64CC3C /* Pods-GPUImageCamera.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUImageCamera.debug.xcconfig"; path = "Target Support Files/Pods-GPUImageCamera/Pods-GPUImageCamera.debug.xcconfig"; sourceTree = "<group>"; };
 		C5224797221FEC9100FBE21D /* GPUImageCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPUImageCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C522479A221FEC9100FBE21D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C522479B221FEC9100FBE21D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -26,6 +29,7 @@
 		C52247A6221FEC9300FBE21D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C52247A8221FEC9300FBE21D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C52247A9221FEC9300FBE21D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CD951F3FB95795B5753A57CB /* Pods-GPUImageCamera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUImageCamera.release.xcconfig"; path = "Target Support Files/Pods-GPUImageCamera/Pods-GPUImageCamera.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +37,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47476E547884AF2C766E7672 /* libPods-GPUImageCamera.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4673604AF2A703E1AE098D08 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AE6314E5A6BE162BFC64CC3C /* Pods-GPUImageCamera.debug.xcconfig */,
+				CD951F3FB95795B5753A57CB /* Pods-GPUImageCamera.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		C522478E221FEC9100FBE21D = {
 			isa = PBXGroup;
 			children = (
 				C5224799221FEC9100FBE21D /* GPUImageCamera */,
 				C5224798221FEC9100FBE21D /* Products */,
+				4673604AF2A703E1AE098D08 /* Pods */,
+				FA80F674B312E443488D6A77 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,6 +87,14 @@
 			path = GPUImageCamera;
 			sourceTree = "<group>";
 		};
+		FA80F674B312E443488D6A77 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				379CAF6597E65FCFF1462E0A /* libPods-GPUImageCamera.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -78,9 +102,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C52247AD221FEC9300FBE21D /* Build configuration list for PBXNativeTarget "GPUImageCamera" */;
 			buildPhases = (
+				BD6FF3DFC194DBB78589A0F1 /* [CP] Check Pods Manifest.lock */,
 				C5224793221FEC9100FBE21D /* Sources */,
 				C5224794221FEC9100FBE21D /* Frameworks */,
 				C5224795221FEC9100FBE21D /* Resources */,
+				CDF9BBC07B604AD246035E03 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -135,6 +161,61 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BD6FF3DFC194DBB78589A0F1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GPUImageCamera-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CDF9BBC07B604AD246035E03 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GPUImageCamera/Pods-GPUImageCamera-resources.sh",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_amatorka.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_miss_etikate.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_1.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_2.png",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_amatorka.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_miss_etikate.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_1.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_2.png",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GPUImageCamera/Pods-GPUImageCamera-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C5224793221FEC9100FBE21D /* Sources */ = {
@@ -283,11 +364,13 @@
 		};
 		C52247AE221FEC9300FBE21D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE6314E5A6BE162BFC64CC3C /* Pods-GPUImageCamera.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 68A6PPJ4F3;
 				INFOPLIST_FILE = GPUImageCamera/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -300,11 +383,13 @@
 		};
 		C52247AF221FEC9300FBE21D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD951F3FB95795B5753A57CB /* Pods-GPUImageCamera.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 68A6PPJ4F3;
 				INFOPLIST_FILE = GPUImageCamera/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
