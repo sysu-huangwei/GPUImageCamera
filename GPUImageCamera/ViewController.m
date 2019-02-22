@@ -7,9 +7,12 @@
 //
 
 #import "ViewController.h"
+#import <GPUImage.h>
 
 @interface ViewController ()
-
+@property (strong, nonatomic) GPUImageStillCamera* mCamera;
+@property (strong, nonatomic) GPUImageFilter* mFilter;
+@property (strong, nonatomic) GPUImageView* mGPUImageView;
 @end
 
 @implementation ViewController
@@ -17,6 +20,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    _mCamera = [[GPUImageStillCamera alloc] init];
+    
+    _mFilter = [[GPUImageFilter alloc] init];
+    
+    _mGPUImageView = [[GPUImageView alloc] initWithFrame:self.view.bounds];
+    
+    [self.view addSubview:_mGPUImageView];
+    
+    [_mCamera addTarget:_mFilter];
+    [_mFilter addTarget:_mGPUImageView];
+    
+    [_mCamera startCameraCapture];
+    
 }
 
 
