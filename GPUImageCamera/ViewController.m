@@ -21,7 +21,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    _mCamera = [[GPUImageStillCamera alloc] init];
+    _mCamera = [[GPUImageStillCamera alloc] initWithSessionPreset:AVCaptureSessionPresetPhoto cameraPosition:AVCaptureDevicePositionBack];
+    _mCamera.outputImageOrientation = UIInterfaceOrientationPortrait;
     
     _mFilter = [[GPUImageFilter alloc] init];
     

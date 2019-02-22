@@ -12,7 +12,6 @@
 		C522479F221FEC9100FBE21D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C522479E221FEC9100FBE21D /* ViewController.m */; };
 		C52247A2221FEC9100FBE21D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C52247A0221FEC9100FBE21D /* Main.storyboard */; };
 		C52247A4221FEC9300FBE21D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C52247A3221FEC9300FBE21D /* Assets.xcassets */; };
-		C52247A7221FEC9300FBE21D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C52247A5221FEC9300FBE21D /* LaunchScreen.storyboard */; };
 		C52247AA221FEC9300FBE21D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C52247A9221FEC9300FBE21D /* main.m */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +25,6 @@
 		C522479E221FEC9100FBE21D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C52247A1221FEC9100FBE21D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C52247A3221FEC9300FBE21D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C52247A6221FEC9300FBE21D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C52247A8221FEC9300FBE21D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C52247A9221FEC9300FBE21D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CD951F3FB95795B5753A57CB /* Pods-GPUImageCamera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUImageCamera.release.xcconfig"; path = "Target Support Files/Pods-GPUImageCamera/Pods-GPUImageCamera.release.xcconfig"; sourceTree = "<group>"; };
@@ -80,7 +78,6 @@
 				C522479E221FEC9100FBE21D /* ViewController.m */,
 				C52247A0221FEC9100FBE21D /* Main.storyboard */,
 				C52247A3221FEC9300FBE21D /* Assets.xcassets */,
-				C52247A5221FEC9300FBE21D /* LaunchScreen.storyboard */,
 				C52247A8221FEC9300FBE21D /* Info.plist */,
 				C52247A9221FEC9300FBE21D /* main.m */,
 			);
@@ -154,7 +151,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C52247A7221FEC9300FBE21D /* LaunchScreen.storyboard in Resources */,
 				C52247A4221FEC9300FBE21D /* Assets.xcassets in Resources */,
 				C52247A2221FEC9100FBE21D /* Main.storyboard in Resources */,
 			);
@@ -237,14 +233,6 @@
 				C52247A1221FEC9100FBE21D /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		C52247A5221FEC9300FBE21D /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C52247A6221FEC9300FBE21D /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
