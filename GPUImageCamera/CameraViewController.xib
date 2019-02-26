@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CameraViewController">
+            <connections>
+                <outlet property="showView" destination="68p-PM-NEn" id="VEJ-fk-KI0"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zg4-b6-fom" userLabel="topView">
+                    <rect key="frame" x="0.0" y="20" width="375" height="40"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kj2-kA-Vak">
+                            <rect key="frame" x="0.0" y="0.0" width="50" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="2ZM-zb-sZK"/>
+                            </constraints>
+                            <state key="normal" title="返回"/>
+                            <connections>
+                                <action selector="back:" destination="-1" eventType="touchUpInside" id="Doy-rM-Pkn"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Em6-93-5JD"/>
+                        <constraint firstAttribute="bottom" secondItem="Kj2-kA-Vak" secondAttribute="bottom" id="UuQ-k8-mSj"/>
+                        <constraint firstItem="Kj2-kA-Vak" firstAttribute="top" secondItem="zg4-b6-fom" secondAttribute="top" id="Yp1-LE-BeZ"/>
+                        <constraint firstItem="Kj2-kA-Vak" firstAttribute="leading" secondItem="zg4-b6-fom" secondAttribute="leading" id="yXl-zC-1jD"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="68p-PM-NEn" userLabel="showView">
+                    <rect key="frame" x="0.0" y="60" width="375" height="507"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HhC-ac-mQG" userLabel="bottomView">
+                    <rect key="frame" x="0.0" y="567" width="375" height="100"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5k-RK-1l5">
+                            <rect key="frame" x="100" y="0.0" width="175" height="100"/>
+                            <state key="normal" title="拍照"/>
+                            <connections>
+                                <action selector="takePhoto:" destination="-1" eventType="touchUpInside" id="3la-2Y-00A"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="C5k-RK-1l5" secondAttribute="trailing" constant="100" id="0IS-La-xcD"/>
+                        <constraint firstItem="C5k-RK-1l5" firstAttribute="top" secondItem="HhC-ac-mQG" secondAttribute="top" id="N2r-Sz-Pgk"/>
+                        <constraint firstAttribute="bottom" secondItem="C5k-RK-1l5" secondAttribute="bottom" id="ULT-Se-f0N"/>
+                        <constraint firstItem="C5k-RK-1l5" firstAttribute="leading" secondItem="HhC-ac-mQG" secondAttribute="leading" constant="100" id="hZd-BY-sXZ"/>
+                        <constraint firstAttribute="height" constant="100" id="hgj-Gk-gfk"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="HhC-ac-mQG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3Wx-lv-JEr"/>
+                <constraint firstItem="zg4-b6-fom" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="9yf-RF-xdS"/>
+                <constraint firstAttribute="trailing" secondItem="HhC-ac-mQG" secondAttribute="trailing" id="B4U-P7-7Ue"/>
+                <constraint firstAttribute="trailing" secondItem="68p-PM-NEn" secondAttribute="trailing" id="D0u-d9-KEy"/>
+                <constraint firstItem="zg4-b6-fom" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Hbz-cm-Myq"/>
+                <constraint firstAttribute="trailing" secondItem="zg4-b6-fom" secondAttribute="trailing" id="RpA-R0-Cpr"/>
+                <constraint firstItem="68p-PM-NEn" firstAttribute="top" secondItem="zg4-b6-fom" secondAttribute="bottom" id="bee-4C-WRg"/>
+                <constraint firstItem="HhC-ac-mQG" firstAttribute="top" secondItem="68p-PM-NEn" secondAttribute="bottom" id="c25-Jb-X3B"/>
+                <constraint firstItem="68p-PM-NEn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hdV-JY-8vj"/>
+                <constraint firstAttribute="bottom" secondItem="HhC-ac-mQG" secondAttribute="bottom" id="kSJ-he-8NJ"/>
+            </constraints>
+            <point key="canvasLocation" x="140" y="154.27286356821591"/>
+        </view>
+    </objects>
+</document>

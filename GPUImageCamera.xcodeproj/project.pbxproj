@@ -13,6 +13,9 @@
 		C52247A2221FEC9100FBE21D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C52247A0221FEC9100FBE21D /* Main.storyboard */; };
 		C52247A4221FEC9300FBE21D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C52247A3221FEC9300FBE21D /* Assets.xcassets */; };
 		C52247AA221FEC9300FBE21D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C52247A9221FEC9300FBE21D /* main.m */; };
+		C5EF9D662224253000F57B2C /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EF9D642224253000F57B2C /* CameraViewController.m */; };
+		C5EF9D672224253000F57B2C /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5EF9D652224253000F57B2C /* CameraViewController.xib */; };
+		C5EF9D6A222428B500F57B2C /* CameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EF9D69222428B500F57B2C /* CameraController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,11 @@
 		C52247A3221FEC9300FBE21D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C52247A8221FEC9300FBE21D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C52247A9221FEC9300FBE21D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C5EF9D632224253000F57B2C /* CameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		C5EF9D642224253000F57B2C /* CameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		C5EF9D652224253000F57B2C /* CameraViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
+		C5EF9D68222428B500F57B2C /* CameraController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraController.h; sourceTree = "<group>"; };
+		C5EF9D69222428B500F57B2C /* CameraController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraController.m; sourceTree = "<group>"; };
 		CD951F3FB95795B5753A57CB /* Pods-GPUImageCamera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUImageCamera.release.xcconfig"; path = "Target Support Files/Pods-GPUImageCamera/Pods-GPUImageCamera.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,6 +88,11 @@
 				C52247A3221FEC9300FBE21D /* Assets.xcassets */,
 				C52247A8221FEC9300FBE21D /* Info.plist */,
 				C52247A9221FEC9300FBE21D /* main.m */,
+				C5EF9D632224253000F57B2C /* CameraViewController.h */,
+				C5EF9D642224253000F57B2C /* CameraViewController.m */,
+				C5EF9D652224253000F57B2C /* CameraViewController.xib */,
+				C5EF9D68222428B500F57B2C /* CameraController.h */,
+				C5EF9D69222428B500F57B2C /* CameraController.m */,
 			);
 			path = GPUImageCamera;
 			sourceTree = "<group>";
@@ -151,6 +164,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5EF9D672224253000F57B2C /* CameraViewController.xib in Resources */,
 				C52247A4221FEC9300FBE21D /* Assets.xcassets in Resources */,
 				C52247A2221FEC9100FBE21D /* Main.storyboard in Resources */,
 			);
@@ -218,8 +232,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5EF9D662224253000F57B2C /* CameraViewController.m in Sources */,
 				C522479F221FEC9100FBE21D /* ViewController.m in Sources */,
 				C52247AA221FEC9300FBE21D /* main.m in Sources */,
+				C5EF9D6A222428B500F57B2C /* CameraController.m in Sources */,
 				C522479C221FEC9100FBE21D /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,16 +371,17 @@
 			baseConfigurationReference = AE6314E5A6BE162BFC64CC3C /* Pods-GPUImageCamera.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 68A6PPJ4F3;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = PK4EEXA626;
 				INFOPLIST_FILE = GPUImageCamera/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = meitu.GPUImageCamera;
+				PRODUCT_BUNDLE_IDENTIFIER = com.meitu.hw3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development *";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -374,16 +391,17 @@
 			baseConfigurationReference = CD951F3FB95795B5753A57CB /* Pods-GPUImageCamera.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 68A6PPJ4F3;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = GPUImageCamera/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = meitu.GPUImageCamera;
+				PRODUCT_BUNDLE_IDENTIFIER = com.meitu.hw3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
