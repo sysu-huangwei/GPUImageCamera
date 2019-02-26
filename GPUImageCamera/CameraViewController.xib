@@ -33,12 +33,25 @@
                                 <action selector="back:" destination="-1" eventType="touchUpInside" id="Doy-rM-Pkn"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppS-hN-hpD">
+                            <rect key="frame" x="50" y="0.0" width="50" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="f21-pY-Hr3"/>
+                            </constraints>
+                            <state key="normal" title="前/后"/>
+                            <connections>
+                                <action selector="rotateCamera:" destination="-1" eventType="touchUpInside" id="1Mz-iN-Ovz"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="Em6-93-5JD"/>
                         <constraint firstAttribute="bottom" secondItem="Kj2-kA-Vak" secondAttribute="bottom" id="UuQ-k8-mSj"/>
+                        <constraint firstItem="ppS-hN-hpD" firstAttribute="top" secondItem="zg4-b6-fom" secondAttribute="top" id="XVu-0b-CV7"/>
                         <constraint firstItem="Kj2-kA-Vak" firstAttribute="top" secondItem="zg4-b6-fom" secondAttribute="top" id="Yp1-LE-BeZ"/>
+                        <constraint firstItem="ppS-hN-hpD" firstAttribute="leading" secondItem="Kj2-kA-Vak" secondAttribute="trailing" id="pwn-P5-y9P"/>
+                        <constraint firstAttribute="bottom" secondItem="ppS-hN-hpD" secondAttribute="bottom" id="vum-aT-Frh"/>
                         <constraint firstItem="Kj2-kA-Vak" firstAttribute="leading" secondItem="zg4-b6-fom" secondAttribute="leading" id="yXl-zC-1jD"/>
                     </constraints>
                 </view>

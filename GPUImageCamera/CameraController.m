@@ -51,6 +51,9 @@
     [_camera stopCameraCapture];
 }
 
+- (void) rotateCamera {
+    [_camera rotateCamera];
+}
 
 - (void) takePhotoWithcompletion:(captureComlpetion) completion {
     [_camera capturePhotoAsImageProcessedUpToFilter:[_filters firstObject] withCompletionHandler:^(UIImage *processedImage, NSError *error) {
@@ -59,6 +62,8 @@
         }
     }];
 }
+
+
 
 
 @end

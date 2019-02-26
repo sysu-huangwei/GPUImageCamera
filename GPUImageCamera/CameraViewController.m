@@ -18,7 +18,7 @@ typedef NS_ENUM (NSInteger, CurrentState) {
 @property (strong, nonatomic) IBOutlet UIView *showView; //用于展示的view，下面的imageView会在这个view里
 @property (strong, nonatomic) CameraController* cameraController;  //相机控制器
 @property (strong, nonatomic) GPUImageView* imageView;
-@property (assign) CurrentState currentState;
+@property (assign) CurrentState currentState; //当前处于预览还是拍后
 @end
 
 @implementation CameraViewController
@@ -87,6 +87,15 @@ typedef NS_ENUM (NSInteger, CurrentState) {
         [_cameraController open];
     }
     
+}
+
+
+
+/**
+ 切换前后置
+ */
+- (IBAction)rotateCamera:(id)sender {
+    [_cameraController rotateCamera];
 }
 
 @end

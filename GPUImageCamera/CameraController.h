@@ -34,6 +34,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 
+/**
+ 切换前后置
+ */
+- (void) rotateCamera;
+
+
+
+
+/**
+ 拍照
+ */
 - (void) takePhotoWithcompletion:(captureComlpetion) completion;
 
 
