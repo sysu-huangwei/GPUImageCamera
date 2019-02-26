@@ -20,8 +20,9 @@
 - (instancetype) init {
     self = [super init];
     if (self) {
-        _camera = [[GPUImageStillCamera alloc] initWithSessionPreset:AVCaptureSessionPresetPhoto cameraPosition:AVCaptureDevicePositionBack];
-        _camera.outputImageOrientation = UIInterfaceOrientationPortrait;
+        _camera = [[GPUImageStillCamera alloc] initWithSessionPreset:AVCaptureSessionPresetPhoto cameraPosition:AVCaptureDevicePositionFront];
+        _camera.outputImageOrientation = UIInterfaceOrientationPortrait;//设置照片的方向为设备的定向
+        _camera.horizontallyMirrorFrontFacingCamera = YES;//设置前置是否为镜像
     }
     return self;
 }
