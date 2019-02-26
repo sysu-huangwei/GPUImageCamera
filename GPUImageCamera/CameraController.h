@@ -43,10 +43,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- 拍照
+ 拍照返回效果图
  */
-- (void) takePhotoWithcompletion:(captureComlpetion) completion;
+- (void) takePhotoWithCompletion:(captureComlpetion) completion;
 
+
+
+/**
+ 拍照返回原图
+ */
+- (void) takeOriginPhotoWithCompletion:(captureComlpetion) completion;
 
 
 @end

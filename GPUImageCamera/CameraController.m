@@ -11,7 +11,6 @@
 
 @interface CameraController ()
 @property (strong, nonatomic) GPUImageStillCamera* camera;
-
 @end
 
 @implementation CameraController
@@ -56,8 +55,21 @@
     [_camera rotateCamera];
 }
 
-- (void) takePhotoWithcompletion:(captureComlpetion) completion {
+- (void) takePhotoWithCompletion:(captureComlpetion) completion {
     [_camera capturePhotoAsImageProcessedUpToFilter:[_filters firstObject] withCompletionHandler:^(UIImage *processedImage, NSError *error) {
+        if (completion) {
+            completion(processedImage, error);
+        }
+    }];
+}
+
+
+- (void) takeOriginPhotoWithCompletion:(captureComlpetion) completion {
+    __block GPUImageFilter* filter = [[GPUImageFilter alloc] init];
+    [_camera addTarget:filter];
+    [_camera capturePhotoAsImageProcessedUpToFilter:filter withCompletionHandler:^(UIImage *processedImage, NSError *error) {
+        [self->_camera removeTarget:filter];
+        filter = nil;
         if (completion) {
             completion(processedImage, error);
         }

@@ -17,6 +17,7 @@ typedef NS_ENUM (NSInteger, CurrentState) {
 @interface CameraViewController ()
 @property (strong, nonatomic) IBOutlet UIView *showView; //用于展示的view，下面的imageView会在这个view里
 @property (strong, nonatomic) CameraController* cameraController;  //相机控制器
+@property (strong, nonatomic) NSMutableArray* filters; //当前的滤镜链
 @property (strong, nonatomic) GPUImageView* imageView;
 @property (assign) CurrentState currentState; //当前处于预览还是拍后
 @end
@@ -29,6 +30,8 @@ typedef NS_ENUM (NSInteger, CurrentState) {
     
     _currentState = CurrentStateTakingPhoto;
     
+    _filters = [[NSMutableArray alloc] initWithObjects:[[GPUImageSwirlFilter alloc] init], nil];
+    
     //初始化相机控制器
     _cameraController = [[CameraController alloc] init];
     
@@ -40,7 +43,7 @@ typedef NS_ENUM (NSInteger, CurrentState) {
     _imageView = [[GPUImageView alloc] initWithFrame:_showView.bounds];
     [self.showView addSubview:_imageView];
     
-    [_cameraController setFilters:@[[[GPUImageSwirlFilter alloc] init]]];
+    [_cameraController setFilters:_filters];
     
     //给相机控制器设置输出界面
     [_cameraController setOutputFilter:_imageView];
@@ -60,11 +63,11 @@ typedef NS_ENUM (NSInteger, CurrentState) {
  */
 - (IBAction)takePhoto:(id)sender {
     if (_currentState == CurrentStateTakingPhoto) {
-        [_cameraController takePhotoWithcompletion:^(UIImage *processedImage, NSError *error) {
+        [_cameraController takeOriginPhotoWithCompletion:^(UIImage *processedImage, NSError *error) {
             self->_currentState = CurrentStateAfterTaking;
             [self->_cameraController stop];
             GPUImagePicture* picture = [[GPUImagePicture alloc] initWithImage:processedImage];
-            [picture addTarget:self->_imageView];
+            [picture addTarget:[self->_filters firstObject]];
             [picture useNextFrameForImageCapture];
             [picture processImage];
             [picture removeAllTargets];
