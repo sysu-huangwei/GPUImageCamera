@@ -30,12 +30,7 @@
     _filters = filters;
     if (_filters != nil && _filters.count > 0) {
         [_camera addTarget:[_filters firstObject]];
-        [[_filters lastObject] addTarget:_outputFilter];
     }
-    else {
-        [_camera addTarget:_outputFilter];
-    }
-    
 }
 
 - (void)setOutputFilter:(id<GPUImageInput>)outputFilter {
@@ -54,6 +49,15 @@
 
 - (void) stop {
     [_camera stopCameraCapture];
+}
+
+
+- (void) takePhotoWithcompletion:(captureComlpetion) completion {
+    [_camera capturePhotoAsImageProcessedUpToFilter:[_filters firstObject] withCompletionHandler:^(UIImage *processedImage, NSError *error) {
+        if (completion) {
+            completion(processedImage, error);
+        }
+    }];
 }
 
 

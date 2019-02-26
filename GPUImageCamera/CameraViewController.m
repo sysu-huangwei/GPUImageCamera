@@ -32,6 +32,8 @@
     _imageView = [[GPUImageView alloc] initWithFrame:_showView.bounds];
     [self.showView addSubview:_imageView];
     
+    [_cameraController setFilters:@[[[GPUImageSwirlFilter alloc] init]]];
+    
     //给相机控制器设置输出界面
     [_cameraController setOutputFilter:_imageView];
     
@@ -49,6 +51,9 @@
  拍照
  */
 - (IBAction)takePhoto:(id)sender {
+    [_cameraController takePhotoWithcompletion:^(UIImage *processedImage, NSError *error) {
+        [self->_cameraController stop];
+    }];
     
 }
 

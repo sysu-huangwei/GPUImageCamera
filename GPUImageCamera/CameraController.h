@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <GPUImage.h>
 
+typedef void(^captureComlpetion)(UIImage *processedImage, NSError *error);
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CameraController : NSObject
@@ -28,6 +30,13 @@ NS_ASSUME_NONNULL_BEGIN
  停止相机
  */
 - (void) stop;
+
+
+
+
+- (void) takePhotoWithcompletion:(captureComlpetion) completion;
+
+
 
 @end
 
