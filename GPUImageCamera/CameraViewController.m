@@ -20,6 +20,8 @@ typedef NS_ENUM (NSInteger, CurrentState) {
 @property (strong, nonatomic) NSMutableArray* filters; //当前的滤镜链
 @property (strong, nonatomic) GPUImageView* imageView;
 @property (assign) CurrentState currentState; //当前处于预览还是拍后
+@property (assign) CGRect showView4_3;
+@property (assign) CGRect showView16_9;
 @end
 
 @implementation CameraViewController
@@ -30,19 +32,22 @@ typedef NS_ENUM (NSInteger, CurrentState) {
     
     _currentState = CurrentStateTakingPhoto;
     
-    _filters = [[NSMutableArray alloc] initWithObjects:[[GPUImageSwirlFilter alloc] init], nil];
+    _filters = [[NSMutableArray alloc] initWithObjects:[[GPUImageBilateralFilter alloc] init], nil];
     
     //初始化相机控制器
     _cameraController = [[CameraController alloc] init];
     
     //默认拍照比例4:3
     CGRect showViewFrame = _showView.frame;
-    [_showView setFrame:CGRectMake(showViewFrame.origin.x, showViewFrame.origin.y, showViewFrame.size.width, showViewFrame.size.width * 4.0 / 3.0)];
+    _showView4_3 = CGRectMake(showViewFrame.origin.x, showViewFrame.origin.y, showViewFrame.size.width, showViewFrame.size.width * 4.0 / 3.0);
+    _showView16_9 = CGRectMake(showViewFrame.origin.x, showViewFrame.origin.y, showViewFrame.size.width, showViewFrame.size.width * 16.0 / 9.0);
+    [_showView setFrame:_showView4_3];
     
     //用于展示预览的界面
     _imageView = [[GPUImageView alloc] initWithFrame:_showView.bounds];
     [self.showView addSubview:_imageView];
     
+    //给相机控制器设置滤镜链
     [_cameraController setFilters:_filters];
     
     //给相机控制器设置输出界面
@@ -100,5 +105,21 @@ typedef NS_ENUM (NSInteger, CurrentState) {
 - (IBAction)rotateCamera:(id)sender {
     [_cameraController rotateCamera];
 }
+
+
+
+- (IBAction)changePreview4_3:(id)sender {
+    [_cameraController setPreviewType:PreviewType4_3];
+    [_showView setFrame:_showView4_3];
+    [_imageView setFrame:_showView.bounds];
+}
+
+- (IBAction)changePreview16_9:(id)sender {
+    [_cameraController setPreviewType:PreviewType16_9];
+    [_showView setFrame:_showView16_9];
+    [_imageView setFrame:_showView.bounds];
+}
+
+
 
 @end

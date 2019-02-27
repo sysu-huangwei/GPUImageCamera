@@ -43,16 +43,42 @@
                                 <action selector="rotateCamera:" destination="-1" eventType="touchUpInside" id="1Mz-iN-Ovz"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="790-vk-4oK">
+                            <rect key="frame" x="100" y="0.0" width="50" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="kO2-vW-IPH"/>
+                            </constraints>
+                            <state key="normal" title="4:3"/>
+                            <connections>
+                                <action selector="changePreview4_3:" destination="-1" eventType="touchUpInside" id="0zu-VO-ntm"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zkt-f9-BIL">
+                            <rect key="frame" x="150" y="0.0" width="50" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="L4o-qx-qXK"/>
+                            </constraints>
+                            <state key="normal" title="16:9"/>
+                            <connections>
+                                <action selector="changePreview16_9:" destination="-1" eventType="touchUpInside" id="Fjb-pj-Djh"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstAttribute="bottom" secondItem="790-vk-4oK" secondAttribute="bottom" id="1GV-mh-1H5"/>
                         <constraint firstAttribute="height" constant="40" id="Em6-93-5JD"/>
+                        <constraint firstItem="zkt-f9-BIL" firstAttribute="top" secondItem="zg4-b6-fom" secondAttribute="top" id="OCx-yk-eBK"/>
                         <constraint firstAttribute="bottom" secondItem="Kj2-kA-Vak" secondAttribute="bottom" id="UuQ-k8-mSj"/>
                         <constraint firstItem="ppS-hN-hpD" firstAttribute="top" secondItem="zg4-b6-fom" secondAttribute="top" id="XVu-0b-CV7"/>
                         <constraint firstItem="Kj2-kA-Vak" firstAttribute="top" secondItem="zg4-b6-fom" secondAttribute="top" id="Yp1-LE-BeZ"/>
+                        <constraint firstItem="790-vk-4oK" firstAttribute="top" secondItem="zg4-b6-fom" secondAttribute="top" id="ayG-Xi-9C3"/>
                         <constraint firstItem="ppS-hN-hpD" firstAttribute="leading" secondItem="Kj2-kA-Vak" secondAttribute="trailing" id="pwn-P5-y9P"/>
+                        <constraint firstAttribute="bottom" secondItem="zkt-f9-BIL" secondAttribute="bottom" id="sI3-Q4-DhW"/>
                         <constraint firstAttribute="bottom" secondItem="ppS-hN-hpD" secondAttribute="bottom" id="vum-aT-Frh"/>
+                        <constraint firstItem="790-vk-4oK" firstAttribute="leading" secondItem="ppS-hN-hpD" secondAttribute="trailing" id="xgb-u7-koD"/>
                         <constraint firstItem="Kj2-kA-Vak" firstAttribute="leading" secondItem="zg4-b6-fom" secondAttribute="leading" id="yXl-zC-1jD"/>
+                        <constraint firstItem="zkt-f9-BIL" firstAttribute="leading" secondItem="790-vk-4oK" secondAttribute="trailing" id="zSw-8q-tWb"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="68p-PM-NEn" userLabel="showView">

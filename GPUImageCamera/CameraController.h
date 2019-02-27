@@ -9,6 +9,19 @@
 #import <Foundation/Foundation.h>
 #import <GPUImage.h>
 
+
+/**
+ 预览比例
+ */
+typedef NS_ENUM (NSInteger, PreviewType) {
+    PreviewType4_3,
+    PreviewType16_9,
+};
+
+
+/**
+ 拍照完成的回调
+ */
 typedef void(^captureComlpetion)(UIImage *processedImage, NSError *error);
 
 NS_ASSUME_NONNULL_BEGIN
@@ -40,6 +53,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void) rotateCamera;
 
 
+
+/**
+ 设置预览比例
+ */
+- (void) setPreviewType:(PreviewType) previewType;
 
 
 /**

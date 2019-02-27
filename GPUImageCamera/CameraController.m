@@ -55,6 +55,19 @@
     [_camera rotateCamera];
 }
 
+
+- (void) setPreviewType:(PreviewType) previewType {
+    switch (previewType) {
+        case PreviewType16_9:
+            [_camera setCaptureSessionPreset:AVCaptureSessionPresetiFrame960x540];
+            break;
+        case PreviewType4_3:
+            [_camera setCaptureSessionPreset:AVCaptureSessionPresetPhoto];
+        default:
+            break;
+    }
+}
+
 - (void) takePhotoWithCompletion:(captureComlpetion) completion {
     [_camera capturePhotoAsImageProcessedUpToFilter:[_filters firstObject] withCompletionHandler:^(UIImage *processedImage, NSError *error) {
         if (completion) {
