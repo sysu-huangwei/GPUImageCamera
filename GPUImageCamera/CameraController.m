@@ -69,9 +69,9 @@
 }
 
 - (void) takePhotoWithCompletion:(captureComlpetion) completion {
-    [_camera capturePhotoAsImageProcessedUpToFilter:[_filters firstObject] withCompletionHandler:^(UIImage *processedImage, NSError *error) {
+    [_camera capturePhotoAsImageProcessedUpToFilter:[_filters firstObject] withCompletionHandler:^(UIImage *image, NSError *error) {
         if (completion) {
-            completion(processedImage, error);
+            completion(image, error);
         }
     }];
 }
@@ -80,11 +80,11 @@
 - (void) takeOriginPhotoWithCompletion:(captureComlpetion) completion {
     __block GPUImageFilter* filter = [[GPUImageFilter alloc] init];
     [_camera addTarget:filter];
-    [_camera capturePhotoAsImageProcessedUpToFilter:filter withCompletionHandler:^(UIImage *processedImage, NSError *error) {
+    [_camera capturePhotoAsImageProcessedUpToFilter:filter withCompletionHandler:^(UIImage *image, NSError *error) {
         [self->_camera removeTarget:filter];
         filter = nil;
         if (completion) {
-            completion(processedImage, error);
+            completion(image, error);
         }
     }];
 }

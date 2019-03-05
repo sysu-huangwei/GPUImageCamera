@@ -16,12 +16,15 @@ typedef NS_ENUM (NSInteger, CurrentState) {
 
 @interface CameraViewController ()
 @property (strong, nonatomic) IBOutlet UIView *showView; //用于展示的view，下面的imageView会在这个view里
+@property (strong, nonatomic) IBOutlet UIButton *saveResultImageButton;
 @property (strong, nonatomic) CameraController* cameraController;  //相机控制器
 @property (strong, nonatomic) NSMutableArray* filters; //当前的滤镜链
 @property (strong, nonatomic) GPUImageView* imageView;
 @property (assign) CurrentState currentState; //当前处于预览还是拍后
 @property (assign) CGRect showView4_3;
 @property (assign) CGRect showView16_9;
+@property (strong, nonatomic) UIImage* originImage; //原图
+@property (strong, nonatomic) UIImage* resultImage; //结果图
 @end
 
 @implementation CameraViewController
@@ -31,6 +34,7 @@ typedef NS_ENUM (NSInteger, CurrentState) {
     [super viewDidAppear:animated];
     
     _currentState = CurrentStateTakingPhoto;
+    [_saveResultImageButton setHidden:YES];
     
     _filters = [[NSMutableArray alloc] initWithObjects:[[GPUImageBilateralFilter alloc] init], nil];
     
@@ -68,13 +72,17 @@ typedef NS_ENUM (NSInteger, CurrentState) {
  */
 - (IBAction)takePhoto:(id)sender {
     if (_currentState == CurrentStateTakingPhoto) {
-        [_cameraController takeOriginPhotoWithCompletion:^(UIImage *processedImage, NSError *error) {
+        [_cameraController takeOriginPhotoWithCompletion:^(UIImage *image, NSError *error) {
+            self->_originImage = image;
             self->_currentState = CurrentStateAfterTaking;
+            [self->_saveResultImageButton setHidden:NO];
             [self->_cameraController stop];
-            GPUImagePicture* picture = [[GPUImagePicture alloc] initWithImage:processedImage];
+            GPUImagePicture* picture = [[GPUImagePicture alloc] initWithImage:image];
             [picture addTarget:[self->_filters firstObject]];
             [picture useNextFrameForImageCapture];
-            [picture processImage];
+            [picture processImageUpToFilter:[self->_filters firstObject] withCompletionHandler:^(UIImage *processedImage) {
+                self->_resultImage = processedImage;
+            }];
             [picture removeAllTargets];
             picture = nil;
         }];
@@ -92,6 +100,7 @@ typedef NS_ENUM (NSInteger, CurrentState) {
     }
     else {
         _currentState = CurrentStateTakingPhoto;
+        [self->_saveResultImageButton setHidden:YES];
         [_cameraController open];
     }
     
@@ -108,18 +117,34 @@ typedef NS_ENUM (NSInteger, CurrentState) {
 
 
 
+/**
+ 切换比例到4:3
+ */
 - (IBAction)changePreview4_3:(id)sender {
     [_cameraController setPreviewType:PreviewType4_3];
     [_showView setFrame:_showView4_3];
     [_imageView setFrame:_showView.bounds];
 }
 
+
+/**
+ 切换比例到16:9
+ */
 - (IBAction)changePreview16_9:(id)sender {
     [_cameraController setPreviewType:PreviewType16_9];
     [_showView setFrame:_showView16_9];
     [_imageView setFrame:_showView.bounds];
 }
 
+
+/**
+ 保存结果图到相册
+ */
+- (IBAction)saveResultImage:(id)sender {
+    if (_resultImage) {
+        UIImageWriteToSavedPhotosAlbum(_resultImage, nil, nil, nil);
+    }
+}
 
 
 @end

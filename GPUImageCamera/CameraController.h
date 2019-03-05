@@ -22,7 +22,7 @@ typedef NS_ENUM (NSInteger, PreviewType) {
 /**
  拍照完成的回调
  */
-typedef void(^captureComlpetion)(UIImage *processedImage, NSError *error);
+typedef void(^captureComlpetion)(UIImage *image, NSError *error);
 
 NS_ASSUME_NONNULL_BEGIN
 
