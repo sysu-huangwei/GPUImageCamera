@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CameraViewController">
             <connections>
+                <outlet property="saveOriginImageButton" destination="8vN-Js-zXW" id="CQx-Jc-xjf"/>
                 <outlet property="saveResultImageButton" destination="GKX-hr-eZe" id="mBh-dk-CnG"/>
                 <outlet property="showView" destination="68p-PM-NEn" id="VEJ-fk-KI0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -74,6 +75,16 @@
                                 <action selector="saveResultImage:" destination="-1" eventType="touchUpInside" id="X6t-yR-8NZ"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8vN-Js-zXW">
+                            <rect key="frame" x="260" y="0.0" width="65" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="65" id="aRz-rq-mce"/>
+                            </constraints>
+                            <state key="normal" title="保存原图"/>
+                            <connections>
+                                <action selector="saveOriginImage:" destination="-1" eventType="touchUpInside" id="Dsz-KP-zbh"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -83,12 +94,15 @@
                         <constraint firstItem="zkt-f9-BIL" firstAttribute="top" secondItem="zg4-b6-fom" secondAttribute="top" id="OCx-yk-eBK"/>
                         <constraint firstItem="GKX-hr-eZe" firstAttribute="top" secondItem="zg4-b6-fom" secondAttribute="top" id="Un9-ok-8Yo"/>
                         <constraint firstAttribute="bottom" secondItem="Kj2-kA-Vak" secondAttribute="bottom" id="UuQ-k8-mSj"/>
+                        <constraint firstAttribute="bottom" secondItem="8vN-Js-zXW" secondAttribute="bottom" id="VPO-zx-hwr"/>
                         <constraint firstItem="ppS-hN-hpD" firstAttribute="top" secondItem="zg4-b6-fom" secondAttribute="top" id="XVu-0b-CV7"/>
+                        <constraint firstItem="GKX-hr-eZe" firstAttribute="leading" secondItem="8vN-Js-zXW" secondAttribute="trailing" id="YEv-6M-mdq"/>
                         <constraint firstItem="Kj2-kA-Vak" firstAttribute="top" secondItem="zg4-b6-fom" secondAttribute="top" id="Yp1-LE-BeZ"/>
                         <constraint firstAttribute="trailing" secondItem="GKX-hr-eZe" secondAttribute="trailing" id="Z61-bk-7D3"/>
                         <constraint firstItem="790-vk-4oK" firstAttribute="top" secondItem="zg4-b6-fom" secondAttribute="top" id="ayG-Xi-9C3"/>
                         <constraint firstItem="ppS-hN-hpD" firstAttribute="leading" secondItem="Kj2-kA-Vak" secondAttribute="trailing" id="pwn-P5-y9P"/>
                         <constraint firstAttribute="bottom" secondItem="zkt-f9-BIL" secondAttribute="bottom" id="sI3-Q4-DhW"/>
+                        <constraint firstItem="8vN-Js-zXW" firstAttribute="top" secondItem="zg4-b6-fom" secondAttribute="top" id="uSl-EB-Jiv"/>
                         <constraint firstAttribute="bottom" secondItem="ppS-hN-hpD" secondAttribute="bottom" id="vum-aT-Frh"/>
                         <constraint firstItem="790-vk-4oK" firstAttribute="leading" secondItem="ppS-hN-hpD" secondAttribute="trailing" id="xgb-u7-koD"/>
                         <constraint firstItem="Kj2-kA-Vak" firstAttribute="leading" secondItem="zg4-b6-fom" secondAttribute="leading" id="yXl-zC-1jD"/>

@@ -17,6 +17,7 @@ typedef NS_ENUM (NSInteger, CurrentState) {
 @interface CameraViewController ()
 @property (strong, nonatomic) IBOutlet UIView *showView; //用于展示的view，下面的imageView会在这个view里
 @property (strong, nonatomic) IBOutlet UIButton *saveResultImageButton;
+@property (strong, nonatomic) IBOutlet UIButton *saveOriginImageButton;
 @property (strong, nonatomic) CameraController* cameraController;  //相机控制器
 @property (strong, nonatomic) NSMutableArray* filters; //当前的滤镜链
 @property (strong, nonatomic) GPUImageView* imageView;
@@ -34,7 +35,6 @@ typedef NS_ENUM (NSInteger, CurrentState) {
     [super viewDidAppear:animated];
     
     _currentState = CurrentStateTakingPhoto;
-    [_saveResultImageButton setHidden:YES];
     
     _filters = [[NSMutableArray alloc] initWithObjects:[[GPUImageBilateralFilter alloc] init], nil];
     
@@ -64,6 +64,8 @@ typedef NS_ENUM (NSInteger, CurrentState) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [_saveResultImageButton setHidden:YES];
+    [_saveOriginImageButton setHidden:YES];
 }
 
 
@@ -76,6 +78,7 @@ typedef NS_ENUM (NSInteger, CurrentState) {
             self->_originImage = image;
             self->_currentState = CurrentStateAfterTaking;
             [self->_saveResultImageButton setHidden:NO];
+            [self->_saveOriginImageButton setHidden:NO];
             [self->_cameraController stop];
             GPUImagePicture* picture = [[GPUImagePicture alloc] initWithImage:image];
             [picture addTarget:[self->_filters firstObject]];
@@ -101,6 +104,7 @@ typedef NS_ENUM (NSInteger, CurrentState) {
     else {
         _currentState = CurrentStateTakingPhoto;
         [self->_saveResultImageButton setHidden:YES];
+        [self->_saveOriginImageButton setHidden:YES];
         [_cameraController open];
     }
     
@@ -145,6 +149,17 @@ typedef NS_ENUM (NSInteger, CurrentState) {
         UIImageWriteToSavedPhotosAlbum(_resultImage, nil, nil, nil);
     }
 }
+
+
+/**
+ 保存原图到相册
+ */
+- (IBAction)saveOriginImage:(id)sender {
+    if (_originImage) {
+        UIImageWriteToSavedPhotosAlbum(_originImage, nil, nil, nil);
+    }
+}
+
 
 
 @end
