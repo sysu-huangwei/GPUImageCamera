@@ -16,6 +16,7 @@
 		C5EF9D662224253000F57B2C /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EF9D642224253000F57B2C /* CameraViewController.m */; };
 		C5EF9D672224253000F57B2C /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5EF9D652224253000F57B2C /* CameraViewController.xib */; };
 		C5EF9D6A222428B500F57B2C /* CameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EF9D69222428B500F57B2C /* CameraController.m */; };
+		FCA4AE482567B1B0006AE2BA /* GPUImageOilFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE472567B1B0006AE2BA /* GPUImageOilFilter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,8 @@
 		C5EF9D68222428B500F57B2C /* CameraController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraController.h; sourceTree = "<group>"; };
 		C5EF9D69222428B500F57B2C /* CameraController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraController.m; sourceTree = "<group>"; };
 		CD951F3FB95795B5753A57CB /* Pods-GPUImageCamera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUImageCamera.release.xcconfig"; path = "Target Support Files/Pods-GPUImageCamera/Pods-GPUImageCamera.release.xcconfig"; sourceTree = "<group>"; };
+		FCA4AE462567B1B0006AE2BA /* GPUImageOilFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageOilFilter.h; sourceTree = "<group>"; };
+		FCA4AE472567B1B0006AE2BA /* GPUImageOilFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageOilFilter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +96,8 @@
 				C5EF9D652224253000F57B2C /* CameraViewController.xib */,
 				C5EF9D68222428B500F57B2C /* CameraController.h */,
 				C5EF9D69222428B500F57B2C /* CameraController.m */,
+				FCA4AE462567B1B0006AE2BA /* GPUImageOilFilter.h */,
+				FCA4AE472567B1B0006AE2BA /* GPUImageOilFilter.m */,
 			);
 			path = GPUImageCamera;
 			sourceTree = "<group>";
@@ -233,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5EF9D662224253000F57B2C /* CameraViewController.m in Sources */,
+				FCA4AE482567B1B0006AE2BA /* GPUImageOilFilter.m in Sources */,
 				C522479F221FEC9100FBE21D /* ViewController.m in Sources */,
 				C52247AA221FEC9300FBE21D /* main.m in Sources */,
 				C5EF9D6A222428B500F57B2C /* CameraController.m in Sources */,
