@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
     GLfloat kernel[16];
     GLint kernelUniform;
 }
+
+@property (nonatomic, assign) GLfloat samplerInterval;
+
 @end
 
 NS_ASSUME_NONNULL_END

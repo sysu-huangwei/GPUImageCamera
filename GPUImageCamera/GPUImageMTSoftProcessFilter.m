@@ -8,6 +8,8 @@
 
 #import "GPUImageMTSoftProcessFilter.h"
 
+const CGFloat MTAdaptiveCoef = 1024.0f;
+
 NSString *const kGPUImageMTSoftProcessVertexShaderString = SHADER_STRING
 (
  attribute vec4 position;
@@ -109,6 +111,7 @@ NSString *const kGPUImageMTSoftProcessFragmentShaderString = SHADER_STRING
 
 - (id)init {
     if ((self = [super initWithVertexShaderFromString:kGPUImageMTSoftProcessVertexShaderString fragmentShaderFromString:kGPUImageMTSoftProcessFragmentShaderString])) {
+        _samplerInterval = 0.6f;//0.8f;
         alpha = 0.82f;
         GLfloat kernelf[16] = {0.013298, 0.013291, 0.013269, 0.013232, 0.013180, 0.013115, 0.013035, 0.012941, 0.012834, 0.012713, 0.012579, 0.012434, 0.012276, 0.012106, 0.011926, 0.011736};
         for (int i = 0; i < 16; i++) {
@@ -127,8 +130,9 @@ NSString *const kGPUImageMTSoftProcessFragmentShaderString = SHADER_STRING
 
 - (void)setupFilterForSize:(CGSize)filterFrameSize {
     runSynchronouslyOnVideoProcessingQueue(^{
-        self->textureWidthOffset = 1.0f / filterFrameSize.width;
-        self->textureHeightOffset = 1.0f / filterFrameSize.height;
+        CGFloat adaptiveCoef = (filterFrameSize.width > filterFrameSize.height ? filterFrameSize.width : filterFrameSize.height) / MTAdaptiveCoef;
+        self->textureWidthOffset = adaptiveCoef * self->_samplerInterval / filterFrameSize.width;
+        self->textureHeightOffset = adaptiveCoef * self->_samplerInterval / filterFrameSize.height;
     });
 }
 
