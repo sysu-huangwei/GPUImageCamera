@@ -21,6 +21,7 @@
 		FCA4AE50256E44D8006AE2BA /* GPUImageMTGaussianVerticalBlurFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE4F256E44D8006AE2BA /* GPUImageMTGaussianVerticalBlurFilter.m */; };
 		FCA4AE53256E4541006AE2BA /* GPUImageMTGaussianBaseBlurFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE52256E4540006AE2BA /* GPUImageMTGaussianBaseBlurFilter.m */; };
 		FCA4AE56256E4983006AE2BA /* GPUImageMTGaussianBlurFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE55256E4983006AE2BA /* GPUImageMTGaussianBlurFilter.m */; };
+		FCA4AE59256E51D0006AE2BA /* GPUImageMTGradientFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE58256E51D0006AE2BA /* GPUImageMTGradientFilter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,8 @@
 		FCA4AE52256E4540006AE2BA /* GPUImageMTGaussianBaseBlurFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageMTGaussianBaseBlurFilter.m; sourceTree = "<group>"; };
 		FCA4AE54256E4983006AE2BA /* GPUImageMTGaussianBlurFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageMTGaussianBlurFilter.h; sourceTree = "<group>"; };
 		FCA4AE55256E4983006AE2BA /* GPUImageMTGaussianBlurFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageMTGaussianBlurFilter.m; sourceTree = "<group>"; };
+		FCA4AE57256E51D0006AE2BA /* GPUImageMTGradientFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageMTGradientFilter.h; sourceTree = "<group>"; };
+		FCA4AE58256E51D0006AE2BA /* GPUImageMTGradientFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageMTGradientFilter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +121,8 @@
 				FCA4AE52256E4540006AE2BA /* GPUImageMTGaussianBaseBlurFilter.m */,
 				FCA4AE54256E4983006AE2BA /* GPUImageMTGaussianBlurFilter.h */,
 				FCA4AE55256E4983006AE2BA /* GPUImageMTGaussianBlurFilter.m */,
+				FCA4AE57256E51D0006AE2BA /* GPUImageMTGradientFilter.h */,
+				FCA4AE58256E51D0006AE2BA /* GPUImageMTGradientFilter.m */,
 			);
 			path = GPUImageCamera;
 			sourceTree = "<group>";
@@ -263,6 +268,7 @@
 				C522479F221FEC9100FBE21D /* ViewController.m in Sources */,
 				C52247AA221FEC9300FBE21D /* main.m in Sources */,
 				C5EF9D6A222428B500F57B2C /* CameraController.m in Sources */,
+				FCA4AE59256E51D0006AE2BA /* GPUImageMTGradientFilter.m in Sources */,
 				C522479C221FEC9100FBE21D /* AppDelegate.m in Sources */,
 				FCA4AE53256E4541006AE2BA /* GPUImageMTGaussianBaseBlurFilter.m in Sources */,
 				FCA4AE4D256E4125006AE2BA /* GPUImageMTGaussianHorizonalBlurFilter.m in Sources */,
