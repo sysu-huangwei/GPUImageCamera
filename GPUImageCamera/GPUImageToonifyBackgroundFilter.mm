@@ -12,11 +12,17 @@
 #include "MTFilterGaussianBlur.hpp"
 #include "MTFilterGradient.hpp"
 #include "MTFilterSoftProcess.hpp"
+#include "MTFilterSoftLight.hpp"
+#include <cmath>
 
 @interface GPUImageToonifyBackgroundFilter()
 {
-    MTFilterGradient *filter;
+    MTFilterGaussianBlur *gaussianBlurFilter1;
+    MTFilterGradient *gradientFilter;
+    MTFilterGaussianBlur *gaussianBlurFilter2;
     MTFilterSoftProcess *softProcessFilter;
+    MTFilterGaussianBlur *gaussianBlurFilter3;
+    MTFilterSoftLight *softLightFilter;
 }
 @end
 
@@ -26,10 +32,18 @@
     if (self = [super init]) {
         runSynchronouslyOnVideoProcessingQueue(^{
             GLint err = glGetError();
-            self->filter = new MTFilterGradient();
-            self->filter->init();
+            self->gaussianBlurFilter1 = new MTFilterGaussianBlur();
+            self->gradientFilter = new MTFilterGradient();
+            self->gaussianBlurFilter2 = new MTFilterGaussianBlur();
             self->softProcessFilter = new MTFilterSoftProcess();
+            self->gaussianBlurFilter3 = new MTFilterGaussianBlur();
+            self->softLightFilter = new MTFilterSoftLight();
+            self->gaussianBlurFilter1->init();
+            self->gradientFilter->init();
+            self->gaussianBlurFilter2->init();
             self->softProcessFilter->init();
+            self->gaussianBlurFilter3->init();
+            self->softLightFilter->init();
             err = glGetError();
             NSLog(@"1");
         });
@@ -40,8 +54,21 @@
 - (void)setupFilterForSize:(CGSize)filterFrameSize;
 {
     runSynchronouslyOnVideoProcessingQueue(^{
-        self->filter->resize(filterFrameSize.width, filterFrameSize.height);
+        int scaleMaxSize = 640;
+        int scaleWidth, scaleHeight;
+        if (filterFrameSize.height >= filterFrameSize.width) {
+            scaleHeight = scaleMaxSize;
+            scaleWidth = std::ceil(filterFrameSize.width * scaleHeight / filterFrameSize.height);
+        } else {
+            scaleWidth = scaleMaxSize;
+            scaleHeight = std::ceil(filterFrameSize.height * scaleWidth / filterFrameSize.width);
+        }
+        self->gaussianBlurFilter1->resize(scaleWidth, scaleHeight);
+        self->gradientFilter->resize(scaleWidth, scaleHeight);
+        self->gaussianBlurFilter2->resize(scaleWidth, scaleHeight);
         self->softProcessFilter->resize(filterFrameSize.width, filterFrameSize.height);
+        self->gaussianBlurFilter3->resize(scaleWidth, scaleHeight);
+        self->softLightFilter->resize(filterFrameSize.width, filterFrameSize.height);
     });
 }
 
@@ -63,13 +90,33 @@
     }
 
     GLint err = glGetError();
-    self->filter->setSrcTextureID(firstInputFramebuffer.texture);
-    GLuint tex = self->filter->render();
     
-    self->softProcessFilter->setSrcTextureID(firstInputFramebuffer.texture);
-    self->softProcessFilter->setProcessTextureID(tex);
-    self->softProcessFilter->setOutsideTextureAndFbo(outputFramebuffer.texture, outputFramebuffer.framebuffer);
-    self->softProcessFilter->render();
+    gaussianBlurFilter1->setSamplerInterval(0.9f);
+    gaussianBlurFilter1->setSrcTextureID(firstInputFramebuffer.texture);
+    GLuint gaussianBlurTextureID1 = gaussianBlurFilter1->render();
+    
+    gradientFilter->setSrcTextureID(gaussianBlurTextureID1);
+    GLuint gradientTextureID = gradientFilter->render();
+    
+    gaussianBlurFilter2->setSamplerInterval(2.8f);
+    gaussianBlurFilter2->setSrcTextureID(gradientTextureID);
+    GLuint gaussianBlurTextureID2 = gaussianBlurFilter2->render();
+    
+    softProcessFilter->setSamplerInterval(0.8f);
+    softProcessFilter->setSrcTextureID(firstInputFramebuffer.texture);
+    softProcessFilter->setProcessTextureID(gaussianBlurTextureID2);
+    GLuint softProcessTextureID = softProcessFilter->render();
+    
+    gaussianBlurFilter3->setSamplerInterval(1.5f);
+    gaussianBlurFilter3->setSrcTextureID(softProcessTextureID);
+    GLuint gaussianBlurTextureID3 = gaussianBlurFilter3->render();
+    
+    softLightFilter->setSrcTextureID(softProcessTextureID);
+    softLightFilter->setOverlayTextureID(gaussianBlurTextureID3);
+    softLightFilter->setOutsideTextureAndFbo(outputFramebuffer.texture, outputFramebuffer.framebuffer);
+    softLightFilter->render();
+    
+    
     
 //    [self setUniformsForProgramAtIndex:0];
 //
