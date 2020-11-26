@@ -9,10 +9,14 @@
 #import "GPUImageToonifyBackgroundFilter.h"
 
 #import "MTFilterCopy.hpp"
+#include "MTFilterGaussianBlur.hpp"
+#include "MTFilterGradient.hpp"
+#include "MTFilterSoftProcess.hpp"
 
 @interface GPUImageToonifyBackgroundFilter()
 {
-    MTFilterCopy *filter;
+    MTFilterGradient *filter;
+    MTFilterSoftProcess *softProcessFilter;
 }
 @end
 
@@ -21,8 +25,13 @@
 -(instancetype)init {
     if (self = [super init]) {
         runSynchronouslyOnVideoProcessingQueue(^{
-            self->filter = new MTFilterCopy();
+            GLint err = glGetError();
+            self->filter = new MTFilterGradient();
             self->filter->init();
+            self->softProcessFilter = new MTFilterSoftProcess();
+            self->softProcessFilter->init();
+            err = glGetError();
+            NSLog(@"1");
         });
     }
     return self;
@@ -32,6 +41,7 @@
 {
     runSynchronouslyOnVideoProcessingQueue(^{
         self->filter->resize(filterFrameSize.width, filterFrameSize.height);
+        self->softProcessFilter->resize(filterFrameSize.width, filterFrameSize.height);
     });
 }
 
@@ -52,9 +62,14 @@
         [outputFramebuffer lock];
     }
 
-    self->filter->setOutsideTextureAndFbo(outputFramebuffer.texture, outputFramebuffer.framebuffer);
+    GLint err = glGetError();
     self->filter->setSrcTextureID(firstInputFramebuffer.texture);
-    self->filter->render();
+    GLuint tex = self->filter->render();
+    
+    self->softProcessFilter->setSrcTextureID(firstInputFramebuffer.texture);
+    self->softProcessFilter->setProcessTextureID(tex);
+    self->softProcessFilter->setOutsideTextureAndFbo(outputFramebuffer.texture, outputFramebuffer.framebuffer);
+    self->softProcessFilter->render();
     
 //    [self setUniformsForProgramAtIndex:0];
 //
