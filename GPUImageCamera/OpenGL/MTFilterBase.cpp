@@ -96,7 +96,11 @@ void MTFilterBase::afterDraw() {
 }
 
 unsigned MTFilterBase::render() {
-    return textureID;
+    if (isRenderToOutside) {
+        return textureIDOutside;
+    } else {
+        return textureID;
+    }
 }
 
 void MTFilterBase::setOutsideTextureAndFbo(unsigned textureIDOutside, unsigned fboIDOutside) {

@@ -29,6 +29,9 @@
 		FCA4AE6A256F8841006AE2BA /* MTFilterBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE68256F8841006AE2BA /* MTFilterBase.cpp */; };
 		FCA4AE6D256F95A0006AE2BA /* MTFilterCopy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE6B256F95A0006AE2BA /* MTFilterCopy.cpp */; };
 		FCA4AE70256F9D2A006AE2BA /* GPUImageToonifyBackgroundFilter.mm in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE6F256F9D2A006AE2BA /* GPUImageToonifyBackgroundFilter.mm */; };
+		FCA4AE73256FA63D006AE2BA /* MTFilterGaussianBlurHorizonal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE71256FA63D006AE2BA /* MTFilterGaussianBlurHorizonal.cpp */; };
+		FCA4AE76256FAD49006AE2BA /* MTFilterGaussianBlurVertical.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE74256FAD49006AE2BA /* MTFilterGaussianBlurVertical.cpp */; };
+		FCA4AE79256FADB7006AE2BA /* MTFilterGaussianBlur.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE77256FADB7006AE2BA /* MTFilterGaussianBlur.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +79,12 @@
 		FCA4AE6C256F95A0006AE2BA /* MTFilterCopy.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MTFilterCopy.hpp; sourceTree = "<group>"; };
 		FCA4AE6E256F9D2A006AE2BA /* GPUImageToonifyBackgroundFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageToonifyBackgroundFilter.h; sourceTree = "<group>"; };
 		FCA4AE6F256F9D2A006AE2BA /* GPUImageToonifyBackgroundFilter.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = GPUImageToonifyBackgroundFilter.mm; sourceTree = "<group>"; };
+		FCA4AE71256FA63D006AE2BA /* MTFilterGaussianBlurHorizonal.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MTFilterGaussianBlurHorizonal.cpp; sourceTree = "<group>"; };
+		FCA4AE72256FA63D006AE2BA /* MTFilterGaussianBlurHorizonal.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MTFilterGaussianBlurHorizonal.hpp; sourceTree = "<group>"; };
+		FCA4AE74256FAD49006AE2BA /* MTFilterGaussianBlurVertical.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MTFilterGaussianBlurVertical.cpp; sourceTree = "<group>"; };
+		FCA4AE75256FAD49006AE2BA /* MTFilterGaussianBlurVertical.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MTFilterGaussianBlurVertical.hpp; sourceTree = "<group>"; };
+		FCA4AE77256FADB7006AE2BA /* MTFilterGaussianBlur.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MTFilterGaussianBlur.cpp; sourceTree = "<group>"; };
+		FCA4AE78256FADB7006AE2BA /* MTFilterGaussianBlur.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MTFilterGaussianBlur.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +185,12 @@
 				FCA4AE69256F8841006AE2BA /* MTFilterBase.hpp */,
 				FCA4AE6B256F95A0006AE2BA /* MTFilterCopy.cpp */,
 				FCA4AE6C256F95A0006AE2BA /* MTFilterCopy.hpp */,
+				FCA4AE71256FA63D006AE2BA /* MTFilterGaussianBlurHorizonal.cpp */,
+				FCA4AE72256FA63D006AE2BA /* MTFilterGaussianBlurHorizonal.hpp */,
+				FCA4AE74256FAD49006AE2BA /* MTFilterGaussianBlurVertical.cpp */,
+				FCA4AE75256FAD49006AE2BA /* MTFilterGaussianBlurVertical.hpp */,
+				FCA4AE77256FADB7006AE2BA /* MTFilterGaussianBlur.cpp */,
+				FCA4AE78256FADB7006AE2BA /* MTFilterGaussianBlur.hpp */,
 			);
 			path = OpenGL;
 			sourceTree = "<group>";
@@ -311,6 +326,8 @@
 				FCA4AE70256F9D2A006AE2BA /* GPUImageToonifyBackgroundFilter.mm in Sources */,
 				C5EF9D662224253000F57B2C /* CameraViewController.m in Sources */,
 				FCA4AE63256F8411006AE2BA /* BaseGLUtils.cpp in Sources */,
+				FCA4AE76256FAD49006AE2BA /* MTFilterGaussianBlurVertical.cpp in Sources */,
+				FCA4AE79256FADB7006AE2BA /* MTFilterGaussianBlur.cpp in Sources */,
 				FCA4AE6A256F8841006AE2BA /* MTFilterBase.cpp in Sources */,
 				FCA4AE6D256F95A0006AE2BA /* MTFilterCopy.cpp in Sources */,
 				FCA4AE50256E44D8006AE2BA /* GPUImageMTGaussianVerticalBlurFilter.m in Sources */,
@@ -323,6 +340,7 @@
 				FCA4AE59256E51D0006AE2BA /* GPUImageMTGradientFilter.m in Sources */,
 				C522479C221FEC9100FBE21D /* AppDelegate.m in Sources */,
 				FCA4AE53256E4541006AE2BA /* GPUImageMTGaussianBaseBlurFilter.m in Sources */,
+				FCA4AE73256FA63D006AE2BA /* MTFilterGaussianBlurHorizonal.cpp in Sources */,
 				FCA4AE4D256E4125006AE2BA /* GPUImageMTGaussianHorizonalBlurFilter.m in Sources */,
 				FCA4AE56256E4983006AE2BA /* GPUImageMTGaussianBlurFilter.m in Sources */,
 			);

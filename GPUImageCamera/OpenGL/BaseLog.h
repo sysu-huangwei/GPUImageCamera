@@ -7,7 +7,7 @@
 
 #include "BaseDefine.h"
 
-#define LOG_TAG "threedimensional"
+#define LOG_TAG "hw1"
 
 /**
  * log等级
