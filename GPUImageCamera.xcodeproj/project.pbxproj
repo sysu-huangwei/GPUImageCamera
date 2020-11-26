@@ -33,6 +33,7 @@
 		FCA4AE76256FAD49006AE2BA /* MTFilterGaussianBlurVertical.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE74256FAD49006AE2BA /* MTFilterGaussianBlurVertical.cpp */; };
 		FCA4AE79256FADB7006AE2BA /* MTFilterGaussianBlur.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE77256FADB7006AE2BA /* MTFilterGaussianBlur.cpp */; };
 		FCA4AE7C256FCF86006AE2BA /* MTFilterGradient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE7A256FCF86006AE2BA /* MTFilterGradient.cpp */; };
+		FCA4AE7F256FD36C006AE2BA /* MTFilterSoftProcess.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE7D256FD36C006AE2BA /* MTFilterSoftProcess.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,8 @@
 		FCA4AE78256FADB7006AE2BA /* MTFilterGaussianBlur.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MTFilterGaussianBlur.hpp; sourceTree = "<group>"; };
 		FCA4AE7A256FCF86006AE2BA /* MTFilterGradient.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MTFilterGradient.cpp; sourceTree = "<group>"; };
 		FCA4AE7B256FCF86006AE2BA /* MTFilterGradient.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MTFilterGradient.hpp; sourceTree = "<group>"; };
+		FCA4AE7D256FD36C006AE2BA /* MTFilterSoftProcess.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MTFilterSoftProcess.cpp; sourceTree = "<group>"; };
+		FCA4AE7E256FD36C006AE2BA /* MTFilterSoftProcess.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MTFilterSoftProcess.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +199,8 @@
 				FCA4AE78256FADB7006AE2BA /* MTFilterGaussianBlur.hpp */,
 				FCA4AE7A256FCF86006AE2BA /* MTFilterGradient.cpp */,
 				FCA4AE7B256FCF86006AE2BA /* MTFilterGradient.hpp */,
+				FCA4AE7D256FD36C006AE2BA /* MTFilterSoftProcess.cpp */,
+				FCA4AE7E256FD36C006AE2BA /* MTFilterSoftProcess.hpp */,
 			);
 			path = OpenGL;
 			sourceTree = "<group>";
@@ -349,6 +354,7 @@
 				FCA4AE4D256E4125006AE2BA /* GPUImageMTGaussianHorizonalBlurFilter.m in Sources */,
 				FCA4AE7C256FCF86006AE2BA /* MTFilterGradient.cpp in Sources */,
 				FCA4AE56256E4983006AE2BA /* GPUImageMTGaussianBlurFilter.m in Sources */,
+				FCA4AE7F256FD36C006AE2BA /* MTFilterSoftProcess.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
