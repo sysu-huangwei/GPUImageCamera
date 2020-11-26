@@ -27,6 +27,7 @@
 		FCA4AE63256F8411006AE2BA /* BaseGLUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE61256F8411006AE2BA /* BaseGLUtils.cpp */; };
 		FCA4AE67256F8468006AE2BA /* BaseLog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE65256F8467006AE2BA /* BaseLog.cpp */; };
 		FCA4AE6A256F8841006AE2BA /* MTFilterBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE68256F8841006AE2BA /* MTFilterBase.cpp */; };
+		FCA4AE6D256F95A0006AE2BA /* MTFilterCopy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE6B256F95A0006AE2BA /* MTFilterCopy.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,8 @@
 		FCA4AE66256F8467006AE2BA /* BaseLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseLog.h; sourceTree = "<group>"; };
 		FCA4AE68256F8841006AE2BA /* MTFilterBase.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MTFilterBase.cpp; sourceTree = "<group>"; };
 		FCA4AE69256F8841006AE2BA /* MTFilterBase.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MTFilterBase.hpp; sourceTree = "<group>"; };
+		FCA4AE6B256F95A0006AE2BA /* MTFilterCopy.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MTFilterCopy.cpp; sourceTree = "<group>"; };
+		FCA4AE6C256F95A0006AE2BA /* MTFilterCopy.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MTFilterCopy.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +169,8 @@
 				FCA4AE62256F8411006AE2BA /* BaseGLUtils.hpp */,
 				FCA4AE68256F8841006AE2BA /* MTFilterBase.cpp */,
 				FCA4AE69256F8841006AE2BA /* MTFilterBase.hpp */,
+				FCA4AE6B256F95A0006AE2BA /* MTFilterCopy.cpp */,
+				FCA4AE6C256F95A0006AE2BA /* MTFilterCopy.hpp */,
 			);
 			path = OpenGL;
 			sourceTree = "<group>";
@@ -301,6 +306,7 @@
 				C5EF9D662224253000F57B2C /* CameraViewController.m in Sources */,
 				FCA4AE63256F8411006AE2BA /* BaseGLUtils.cpp in Sources */,
 				FCA4AE6A256F8841006AE2BA /* MTFilterBase.cpp in Sources */,
+				FCA4AE6D256F95A0006AE2BA /* MTFilterCopy.cpp in Sources */,
 				FCA4AE50256E44D8006AE2BA /* GPUImageMTGaussianVerticalBlurFilter.m in Sources */,
 				FCA4AE482567B1B0006AE2BA /* GPUImageOilFilter.m in Sources */,
 				C522479F221FEC9100FBE21D /* ViewController.m in Sources */,

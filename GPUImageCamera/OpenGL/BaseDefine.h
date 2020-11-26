@@ -28,5 +28,9 @@
 #define SAFE_FREE(p) if(p != NULL) {free(p); p = NULL;}
 #endif
 
+//链接字符串的宏定义
+#define STRINGIZE(x) #x
+#define STRINGIZE2(x) STRINGIZE(x)
+#define SHADER_STRING(text) STRINGIZE2(text)
 
 #endif //SMARTKIT_BASEDEFINE_H

@@ -16,6 +16,10 @@ MTFilterBase::MTFilterBase() {
     programID = 0;
     positionAttribute = 0;
     textureCoordinateAttribute = 0;
+    
+    textureIDOutside = 0;
+    fboIDOutside = 0;
+    isRenderToOutside = false;
 }
 
 MTFilterBase::~MTFilterBase() {
@@ -23,9 +27,7 @@ MTFilterBase::~MTFilterBase() {
 }
 
 void MTFilterBase::init() {
-    if (textureID == 0) {
-        textureID = BaseGLUtils::createTexture2D();
-    }
+    
 }
 
 void MTFilterBase::initWithVertexStringAndFragmentString(const char* vs, const char* fs) {
@@ -33,6 +35,9 @@ void MTFilterBase::initWithVertexStringAndFragmentString(const char* vs, const c
         glDeleteProgram(programID);
     }
     programID = BaseGLUtils::createProgram(vs, fs);
+    if (textureID == 0) {
+        textureID = BaseGLUtils::createTexture2D();
+    }
 }
 
 void MTFilterBase::resize(int width, int height) {
@@ -62,8 +67,13 @@ void MTFilterBase::release() {
 }
 
 void MTFilterBase::beforeDraw() {
-    glBindFramebuffer(GL_FRAMEBUFFER, fboID);
-    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textureID, 0);
+    if (isRenderToOutside) {
+        glBindFramebuffer(GL_FRAMEBUFFER, fboIDOutside);
+        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textureIDOutside, 0);
+    } else {
+        glBindFramebuffer(GL_FRAMEBUFFER, fboID);
+        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textureID, 0);
+    }
     
     glViewport(0, 0, width, height);
     
@@ -80,11 +90,17 @@ void MTFilterBase::beforeDraw() {
 }
 
 void MTFilterBase::afterDraw() {
-    glBindFramebuffer(GL_FRAMEBUFFER, GL_NONE);
-    glDisableVertexAttribArray(positionAttribute);
-    glDisableVertexAttribArray(textureCoordinateAttribute);
+//    glBindFramebuffer(GL_FRAMEBUFFER, GL_NONE);
+//    glDisableVertexAttribArray(positionAttribute);
+//    glDisableVertexAttribArray(textureCoordinateAttribute);
 }
 
 unsigned MTFilterBase::render() {
     return textureID;
+}
+
+void MTFilterBase::setOutsideTextureAndFbo(unsigned textureIDOutside, unsigned fboIDOutside) {
+    this->textureIDOutside = textureIDOutside;
+    this->fboIDOutside = fboIDOutside;
+    isRenderToOutside = true;
 }

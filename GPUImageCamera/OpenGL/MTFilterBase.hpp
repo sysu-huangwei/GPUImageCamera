@@ -32,17 +32,22 @@ public:
     MTFilterBase();
     ~MTFilterBase();
     virtual void init();
-    virtual void initWithVertexStringAndFragmentString(const char* vs, const char* fs);
     virtual void resize(int width, int height);
     virtual void release();
     virtual unsigned render() = 0;
     virtual void beforeDraw();
     virtual void afterDraw();
     
-private:
+    virtual void setOutsideTextureAndFbo(unsigned textureIDOutside, unsigned fboIDOutside);
+    
+protected:
     int width, height;
     unsigned textureID, fboID, programID;
     int positionAttribute, textureCoordinateAttribute;
+    virtual void initWithVertexStringAndFragmentString(const char* vs, const char* fs);
+    
+    unsigned textureIDOutside, fboIDOutside;
+    bool isRenderToOutside;
 };
 
 #endif /* MTFilterBase_hpp */
