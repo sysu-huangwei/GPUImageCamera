@@ -28,6 +28,7 @@
 		FCA4AE67256F8468006AE2BA /* BaseLog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE65256F8467006AE2BA /* BaseLog.cpp */; };
 		FCA4AE6A256F8841006AE2BA /* MTFilterBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE68256F8841006AE2BA /* MTFilterBase.cpp */; };
 		FCA4AE6D256F95A0006AE2BA /* MTFilterCopy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE6B256F95A0006AE2BA /* MTFilterCopy.cpp */; };
+		FCA4AE70256F9D2A006AE2BA /* GPUImageToonifyBackgroundFilter.mm in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE6F256F9D2A006AE2BA /* GPUImageToonifyBackgroundFilter.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,8 @@
 		FCA4AE69256F8841006AE2BA /* MTFilterBase.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MTFilterBase.hpp; sourceTree = "<group>"; };
 		FCA4AE6B256F95A0006AE2BA /* MTFilterCopy.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MTFilterCopy.cpp; sourceTree = "<group>"; };
 		FCA4AE6C256F95A0006AE2BA /* MTFilterCopy.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MTFilterCopy.hpp; sourceTree = "<group>"; };
+		FCA4AE6E256F9D2A006AE2BA /* GPUImageToonifyBackgroundFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageToonifyBackgroundFilter.h; sourceTree = "<group>"; };
+		FCA4AE6F256F9D2A006AE2BA /* GPUImageToonifyBackgroundFilter.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = GPUImageToonifyBackgroundFilter.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +150,8 @@
 				FCA4AE5B256E54C1006AE2BA /* GPUImageMTSoftProcessFilter.m */,
 				FCA4AE5D256E74A6006AE2BA /* GPUImageMTSoftLightFilter.h */,
 				FCA4AE5E256E74A6006AE2BA /* GPUImageMTSoftLightFilter.m */,
+				FCA4AE6E256F9D2A006AE2BA /* GPUImageToonifyBackgroundFilter.h */,
+				FCA4AE6F256F9D2A006AE2BA /* GPUImageToonifyBackgroundFilter.mm */,
 			);
 			path = GPUImageCamera;
 			sourceTree = "<group>";
@@ -303,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCA4AE67256F8468006AE2BA /* BaseLog.cpp in Sources */,
+				FCA4AE70256F9D2A006AE2BA /* GPUImageToonifyBackgroundFilter.mm in Sources */,
 				C5EF9D662224253000F57B2C /* CameraViewController.m in Sources */,
 				FCA4AE63256F8411006AE2BA /* BaseGLUtils.cpp in Sources */,
 				FCA4AE6A256F8841006AE2BA /* MTFilterBase.cpp in Sources */,

@@ -13,6 +13,7 @@
 #import "GPUImageMTGradientFilter.h"
 #import "GPUImageMTSoftProcessFilter.h"
 #import "GPUImageMTSoftLightFilter.h"
+#import "GPUImageToonifyBackgroundFilter.h"
 
 typedef NS_ENUM (NSInteger, CurrentState) {
     CurrentStateTakingPhoto,//预览
@@ -46,6 +47,7 @@ typedef NS_ENUM (NSInteger, CurrentState) {
 @property (strong, nonatomic) GPUImageMTSoftProcessFilter *softProcessFilter;
 @property (strong, nonatomic) GPUImageMTGaussianBlurFilter *blurFilter3;
 @property (strong, nonatomic) GPUImageMTSoftLightFilter *softLightFilter;
+@property (strong, nonatomic) GPUImageToonifyBackgroundFilter *toonifyBackgroundFilter;
 @end
 
 @implementation CameraViewController
@@ -72,6 +74,7 @@ typedef NS_ENUM (NSInteger, CurrentState) {
     _softProcessFilter = [[GPUImageMTSoftProcessFilter alloc] init];
     _blurFilter3 = [[GPUImageMTGaussianBlurFilter alloc] init];
     _softLightFilter = [[GPUImageMTSoftLightFilter alloc] init];
+    _toonifyBackgroundFilter = [[GPUImageToonifyBackgroundFilter alloc] init];
     
     
 //    GPUImageMTGaussianBlurFilter* f = (GPUImageMTGaussianBlurFilter*)_filter;
@@ -106,7 +109,10 @@ typedef NS_ENUM (NSInteger, CurrentState) {
 //    }];
     
     //给相机控制器设置滤镜链
-    [_cameraController setFilters:@[_blurFilter1, _softProcessFilter]];
+//    [_cameraController setFilters:@[_blurFilter1, _softProcessFilter]];
+    id test = [GPUImageFilter new];
+    [_cameraController setFilters:@[_toonifyBackgroundFilter]];
+    [_toonifyBackgroundFilter addTarget:_imageView];
     
 
     //    [_picture addTarget:_blurFilter1];
