@@ -34,6 +34,7 @@
 		FCA4AE79256FADB7006AE2BA /* MTFilterGaussianBlur.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE77256FADB7006AE2BA /* MTFilterGaussianBlur.cpp */; };
 		FCA4AE7C256FCF86006AE2BA /* MTFilterGradient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE7A256FCF86006AE2BA /* MTFilterGradient.cpp */; };
 		FCA4AE7F256FD36C006AE2BA /* MTFilterSoftProcess.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE7D256FD36C006AE2BA /* MTFilterSoftProcess.cpp */; };
+		FCA4AE82256FDB30006AE2BA /* MTFilterSoftLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE80256FDB30006AE2BA /* MTFilterSoftLight.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +92,8 @@
 		FCA4AE7B256FCF86006AE2BA /* MTFilterGradient.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MTFilterGradient.hpp; sourceTree = "<group>"; };
 		FCA4AE7D256FD36C006AE2BA /* MTFilterSoftProcess.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MTFilterSoftProcess.cpp; sourceTree = "<group>"; };
 		FCA4AE7E256FD36C006AE2BA /* MTFilterSoftProcess.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MTFilterSoftProcess.hpp; sourceTree = "<group>"; };
+		FCA4AE80256FDB30006AE2BA /* MTFilterSoftLight.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MTFilterSoftLight.cpp; sourceTree = "<group>"; };
+		FCA4AE81256FDB30006AE2BA /* MTFilterSoftLight.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MTFilterSoftLight.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +204,8 @@
 				FCA4AE7B256FCF86006AE2BA /* MTFilterGradient.hpp */,
 				FCA4AE7D256FD36C006AE2BA /* MTFilterSoftProcess.cpp */,
 				FCA4AE7E256FD36C006AE2BA /* MTFilterSoftProcess.hpp */,
+				FCA4AE80256FDB30006AE2BA /* MTFilterSoftLight.cpp */,
+				FCA4AE81256FDB30006AE2BA /* MTFilterSoftLight.hpp */,
 			);
 			path = OpenGL;
 			sourceTree = "<group>";
@@ -333,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCA4AE67256F8468006AE2BA /* BaseLog.cpp in Sources */,
+				FCA4AE82256FDB30006AE2BA /* MTFilterSoftLight.cpp in Sources */,
 				FCA4AE70256F9D2A006AE2BA /* GPUImageToonifyBackgroundFilter.mm in Sources */,
 				C5EF9D662224253000F57B2C /* CameraViewController.m in Sources */,
 				FCA4AE63256F8411006AE2BA /* BaseGLUtils.cpp in Sources */,
