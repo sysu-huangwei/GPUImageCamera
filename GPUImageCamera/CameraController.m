@@ -28,9 +28,12 @@
 
 - (void)setFilters:(NSMutableArray<GPUImageOutput<GPUImageInput> *> *)filters {
     _filters = filters;
-    if (_filters != nil && _filters.count > 0) {
-        [_camera addTarget:[_filters firstObject]];
+    for (id filter in filters) {
+        [_camera addTarget:filter];
     }
+//    if (_filters != nil && _filters.count > 0) {
+//        [_camera addTarget:[_filters firstObject]];
+//    }
 }
 
 - (void)setOutputFilter:(id<GPUImageInput>)outputFilter {
@@ -68,8 +71,8 @@
     }
 }
 
-- (void) takePhotoWithCompletion:(captureComlpetion) completion {
-    [_camera capturePhotoAsImageProcessedUpToFilter:[_filters firstObject] withCompletionHandler:^(UIImage *image, NSError *error) {
+- (void) takePhotoUpToFilter:(GPUImageOutput<GPUImageInput> *)finalFilterInChain WithCompletion:(captureComlpetion) completion {
+    [_camera capturePhotoAsImageProcessedUpToFilter:finalFilterInChain withCompletionHandler:^(UIImage *image, NSError *error) {
         if (completion) {
             completion(image, error);
         }

@@ -63,7 +63,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  拍照返回效果图
  */
-- (void) takePhotoWithCompletion:(captureComlpetion) completion;
+- (void) takePhotoUpToFilter:(GPUImageOutput<GPUImageInput> *)finalFilterInChain WithCompletion:(captureComlpetion) completion;
 
 
 

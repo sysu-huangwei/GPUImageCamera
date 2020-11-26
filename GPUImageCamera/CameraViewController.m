@@ -8,6 +8,11 @@
 
 #import "CameraViewController.h"
 #import "CameraController.h"
+#import "GPUImageOilFilter.h"
+#import "GPUImageMTGaussianBlurFilter.h"
+#import "GPUImageMTGradientFilter.h"
+#import "GPUImageMTSoftProcessFilter.h"
+#import "GPUImageMTSoftLightFilter.h"
 
 typedef NS_ENUM (NSInteger, CurrentState) {
     CurrentStateTakingPhoto,//预览
@@ -19,6 +24,10 @@ typedef NS_ENUM (NSInteger, CurrentState) {
 @property (strong, nonatomic) IBOutlet UIButton *saveResultImageButton;
 @property (strong, nonatomic) IBOutlet UIButton *saveOriginImageButton;
 @property (strong, nonatomic) CameraController* cameraController;  //相机控制器
+@property (strong, nonatomic) IBOutlet UISlider *blurSlider1;
+@property (strong, nonatomic) IBOutlet UISlider *blurSlider2;
+@property (strong, nonatomic) IBOutlet UISlider *blurSlider3;
+@property (strong, nonatomic) IBOutlet UISlider *softSlider;
 @property (strong, nonatomic) NSMutableArray* filters; //当前的滤镜链
 @property (strong, nonatomic) GPUImageView* imageView;
 @property (assign) CurrentState currentState; //当前处于预览还是拍后
@@ -26,6 +35,17 @@ typedef NS_ENUM (NSInteger, CurrentState) {
 @property (assign) CGRect showView16_9;
 @property (strong, nonatomic) UIImage* originImage; //原图
 @property (strong, nonatomic) UIImage* resultImage; //结果图
+@property (assign, nonatomic) BOOL showOrigin;
+//@property (strong, nonatomic) GPUImagePicture *picture;
+@property (strong, nonatomic) GPUImageOutput <GPUImageInput> *filter;
+@property (strong, nonatomic) GPUImagePicture *lutPicture;
+@property (strong, nonatomic) GPUImageLookupFilter *lutFilter;
+@property (strong, nonatomic) GPUImageMTGaussianBlurFilter *blurFilter1;
+@property (strong, nonatomic) GPUImageMTGradientFilter *gradientFilter;
+@property (strong, nonatomic) GPUImageMTGaussianBlurFilter *blurFilter2;
+@property (strong, nonatomic) GPUImageMTSoftProcessFilter *softProcessFilter;
+@property (strong, nonatomic) GPUImageMTGaussianBlurFilter *blurFilter3;
+@property (strong, nonatomic) GPUImageMTSoftLightFilter *softLightFilter;
 @end
 
 @implementation CameraViewController
@@ -36,26 +56,70 @@ typedef NS_ENUM (NSInteger, CurrentState) {
     
     _currentState = CurrentStateTakingPhoto;
     
-    _filters = [[NSMutableArray alloc] initWithObjects:[[GPUImageBilateralFilter alloc] init], nil];
+    NSString *lutFile = [NSBundle.mainBundle.bundlePath stringByAppendingPathComponent:@"lut.png"];
+    UIImage *lutImage = [[UIImage alloc] initWithContentsOfFile:lutFile];
+    _lutPicture = [[GPUImagePicture alloc] initWithImage:lutImage];
+    _lutFilter = [[GPUImageLookupFilter alloc] init];
+    
+    NSString *file = [NSBundle.mainBundle.bundlePath stringByAppendingPathComponent:@"leiyi.jpg"];
+    _originImage = [[UIImage alloc] initWithContentsOfFile:file];
+//    _picture = [[GPUImagePicture alloc] initWithImage:_originImage];
+    
+    _filter = [[GPUImageMTGradientFilter alloc] init];
+    _blurFilter1 = [[GPUImageMTGaussianBlurFilter alloc] init];
+    _gradientFilter = [[GPUImageMTGradientFilter alloc] init];
+    _blurFilter2 = [[GPUImageMTGaussianBlurFilter alloc] init];
+    _softProcessFilter = [[GPUImageMTSoftProcessFilter alloc] init];
+    _blurFilter3 = [[GPUImageMTGaussianBlurFilter alloc] init];
+    _softLightFilter = [[GPUImageMTSoftLightFilter alloc] init];
+    
+    
+//    GPUImageMTGaussianBlurFilter* f = (GPUImageMTGaussianBlurFilter*)_filter;
+//    [f setSamplerInterval:3.0f];
+    
+//    _filters = [[NSMutableArray alloc] initWithObjects:filter, nil];
     
     //初始化相机控制器
     _cameraController = [[CameraController alloc] init];
     
     //默认拍照比例4:3
-    CGRect showViewFrame = _showView.frame;
-    _showView4_3 = CGRectMake(showViewFrame.origin.x, showViewFrame.origin.y, showViewFrame.size.width, showViewFrame.size.width * 4.0 / 3.0);
-    _showView16_9 = CGRectMake(showViewFrame.origin.x, showViewFrame.origin.y, showViewFrame.size.width, showViewFrame.size.width * 16.0 / 9.0);
-    [_showView setFrame:_showView4_3];
+//    CGRect showViewFrame = _showView.frame;
+//    _showView4_3 = CGRectMake(showViewFrame.origin.x, showViewFrame.origin.y, showViewFrame.size.width, showViewFrame.size.width * 4.0 / 3.0);
+//    _showView16_9 = CGRectMake(showViewFrame.origin.x, showViewFrame.origin.y, showViewFrame.size.width, showViewFrame.size.width * 16.0 / 9.0);
+//    [_showView setFrame:_showView4_3];
     
     //用于展示预览的界面
     _imageView = [[GPUImageView alloc] initWithFrame:_showView.bounds];
     [self.showView addSubview:_imageView];
     
+    [_softLightFilter addTarget:_imageView];
+//    [_picture addTarget:_filter];
+//    [_lutPicture addTarget:_filter];
+//    [_filter addTarget:_imageView];
+    
+//    [_lutPicture useNextFrameForImageCapture];
+//    [_lutPicture processImage];
+    
+//    [_picture useNextFrameForImageCapture];
+//    [_picture processImageUpToFilter:_softLightFilter withCompletionHandler:^(UIImage *processedImage) {
+//        NSLog(@"1");
+//    }];
+    
     //给相机控制器设置滤镜链
-    [_cameraController setFilters:_filters];
+    [_cameraController setFilters:@[_blurFilter1, _softProcessFilter]];
+    
+
+    //    [_picture addTarget:_blurFilter1];
+        [_blurFilter1 addTarget:_gradientFilter];
+        [_gradientFilter addTarget:_blurFilter2];
+    //    [_picture addTarget:_softProcessFilter];
+        [_blurFilter2 addTarget:_softProcessFilter];
+        [_softProcessFilter addTarget:_blurFilter3];
+        [_softProcessFilter addTarget:_softLightFilter];
+        [_blurFilter3 addTarget:_softLightFilter];
     
     //给相机控制器设置输出界面
-    [_cameraController setOutputFilter:_imageView];
+//    [_cameraController setOutputFilter:_imageView];
     
     //打开相机
     [_cameraController open];
@@ -66,6 +130,7 @@ typedef NS_ENUM (NSInteger, CurrentState) {
     [super viewDidLoad];
     [_saveResultImageButton setHidden:YES];
     [_saveOriginImageButton setHidden:YES];
+    _showOrigin = NO;
 }
 
 
@@ -73,23 +138,46 @@ typedef NS_ENUM (NSInteger, CurrentState) {
  拍照
  */
 - (IBAction)takePhoto:(id)sender {
-    if (_currentState == CurrentStateTakingPhoto) {
-        [_cameraController takeOriginPhotoWithCompletion:^(UIImage *image, NSError *error) {
-            self->_originImage = image;
-            self->_currentState = CurrentStateAfterTaking;
-            [self->_saveResultImageButton setHidden:NO];
-            [self->_saveOriginImageButton setHidden:NO];
-            [self->_cameraController stop];
-            GPUImagePicture* picture = [[GPUImagePicture alloc] initWithImage:image];
-            [picture addTarget:[self->_filters firstObject]];
-            [picture useNextFrameForImageCapture];
-            [picture processImageUpToFilter:[self->_filters firstObject] withCompletionHandler:^(UIImage *processedImage) {
-                self->_resultImage = processedImage;
-            }];
-            [picture removeAllTargets];
-            picture = nil;
-        }];
-    }
+//    [_picture removeAllTargets];
+//    _showOrigin = !_showOrigin;
+//    if (_showOrigin) {
+//        [_picture addTarget:_imageView];
+//    } else {
+//        [_picture addTarget:_blurFilter1];
+//        [_blurFilter1 addTarget:_gradientFilter];
+//        [_gradientFilter addTarget:_blurFilter2];
+//        [_picture addTarget:_softProcessFilter];
+//        [_blurFilter2 addTarget:_softProcessFilter];
+//        [_softProcessFilter addTarget:_blurFilter3];
+//        [_softProcessFilter addTarget:_softLightFilter];
+//        [_blurFilter3 addTarget:_softLightFilter];
+//        [_softLightFilter addTarget:_imageView];
+//    }
+////    [_picture useNextFrameForImageCapture];
+//    if (!_showOrigin) {
+//        [_picture processImageUpToFilter:_softLightFilter withCompletionHandler:^(UIImage *processedImage) {
+//            NSLog(@"1");
+//        }];
+//    } else {
+//        [_picture processImage];
+//    }
+//    if (_currentState == CurrentStateTakingPhoto) {
+//        [_cameraController takeOriginPhotoWithCompletion:^(UIImage *image, NSError *error) {
+//            self->_originImage = image;
+//            self->_currentState = CurrentStateAfterTaking;
+//            [self->_saveResultImageButton setHidden:NO];
+//            [self->_saveOriginImageButton setHidden:NO];
+//            [self->_cameraController stop];
+//            GPUImagePicture* picture = [[GPUImagePicture alloc] initWithImage:image];
+//            [picture addTarget:[self->_filters firstObject]];
+//            [picture useNextFrameForImageCapture];
+//            [picture processImageUpToFilter:[self->_filters firstObject] withCompletionHandler:^(UIImage *processedImage) {
+//                self->_resultImage = processedImage;
+//            }];
+//            [picture removeAllTargets];
+//            picture = nil;
+//        }];
+//    }
 }
 
 
@@ -105,7 +193,7 @@ typedef NS_ENUM (NSInteger, CurrentState) {
         _currentState = CurrentStateTakingPhoto;
         [self->_saveResultImageButton setHidden:YES];
         [self->_saveOriginImageButton setHidden:YES];
-        [_cameraController open];
+//        [_cameraController open];
     }
     
 }
@@ -116,7 +204,7 @@ typedef NS_ENUM (NSInteger, CurrentState) {
  切换前后置
  */
 - (IBAction)rotateCamera:(id)sender {
-    [_cameraController rotateCamera];
+//    [_cameraController rotateCamera];
 }
 
 
@@ -125,7 +213,7 @@ typedef NS_ENUM (NSInteger, CurrentState) {
  切换比例到4:3
  */
 - (IBAction)changePreview4_3:(id)sender {
-    [_cameraController setPreviewType:PreviewType4_3];
+//    [_cameraController setPreviewType:PreviewType4_3];
     [_showView setFrame:_showView4_3];
     [_imageView setFrame:_showView.bounds];
 }
@@ -135,7 +223,7 @@ typedef NS_ENUM (NSInteger, CurrentState) {
  切换比例到16:9
  */
 - (IBAction)changePreview16_9:(id)sender {
-    [_cameraController setPreviewType:PreviewType16_9];
+//    [_cameraController setPreviewType:PreviewType16_9];
     [_showView setFrame:_showView16_9];
     [_imageView setFrame:_showView.bounds];
 }
@@ -157,6 +245,47 @@ typedef NS_ENUM (NSInteger, CurrentState) {
 - (IBAction)saveOriginImage:(id)sender {
     if (_originImage) {
         UIImageWriteToSavedPhotosAlbum(_originImage, nil, nil, nil);
+    }
+}
+
+- (IBAction)blurSliderChange1:(id)sender {
+    NSLog(@"11111");
+    if ([sender isKindOfClass:[UISlider class]]) {
+        UISlider *slider = (UISlider *)sender;
+        float realValue = slider.value * 2.0f;
+        [_blurFilter1 setSamplerInterval:realValue];
+//        [_picture processImage];
+    }
+}
+
+- (IBAction)blurSliderChange2:(id)sender {
+    NSLog(@"22222");
+    if ([sender isKindOfClass:[UISlider class]]) {
+        UISlider *slider = (UISlider *)sender;
+        float realValue = slider.value * 6.0f;
+        [_blurFilter2 setSamplerInterval:realValue];
+//        [_picture processImage];
+    }
+}
+
+- (IBAction)blurSliderChange3:(id)sender {
+    if ([sender isKindOfClass:[UISlider class]]) {
+        UISlider *slider = (UISlider *)sender;
+        float realValue = slider.value * 2.0f;
+        [_blurFilter3 setSamplerInterval:realValue];
+//        [_picture processImage];
+    }
+    NSLog(@"33333");
+}
+
+- (IBAction)softSliderChange:(id)sender {
+    NSLog(@"44444");
+    if ([sender isKindOfClass:[UISlider class]]) {
+        UISlider *slider = (UISlider *)sender;
+        float realValue = slider.value * 1.0f;
+        [_softProcessFilter setAlpha:realValue];
+//        [_softProcessFilter setSamplerInterval:realValue];
+//        [_picture processImage];
     }
 }
 

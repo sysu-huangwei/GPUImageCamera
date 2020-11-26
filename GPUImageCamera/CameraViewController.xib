@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CameraViewController">
             <connections>
+                <outlet property="blurSlider1" destination="hK8-fD-q3r" id="uXH-to-5yQ"/>
+                <outlet property="blurSlider2" destination="Oun-2X-p2u" id="krd-Qk-dcf"/>
+                <outlet property="blurSlider3" destination="xX2-bJ-5Yq" id="0Jv-Qh-KuD"/>
                 <outlet property="saveOriginImageButton" destination="8vN-Js-zXW" id="CQx-Jc-xjf"/>
                 <outlet property="saveResultImageButton" destination="GKX-hr-eZe" id="mBh-dk-CnG"/>
                 <outlet property="showView" destination="68p-PM-NEn" id="VEJ-fk-KI0"/>
+                <outlet property="softSlider" destination="T4v-EI-MfO" id="RL5-hh-3xU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -116,8 +118,37 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HhC-ac-mQG" userLabel="bottomView">
                     <rect key="frame" x="0.0" y="567" width="375" height="100"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5k-RK-1l5">
-                            <rect key="frame" x="100" y="0.0" width="175" height="100"/>
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="hK8-fD-q3r">
+                            <rect key="frame" x="-2" y="0.0" width="140" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <connections>
+                                <action selector="blurSliderChange1:" destination="-1" eventType="valueChanged" id="71F-SY-Te4"/>
+                            </connections>
+                        </slider>
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="xX2-bJ-5Yq">
+                            <rect key="frame" x="-2" y="36" width="140" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <connections>
+                                <action selector="blurSliderChange3:" destination="-1" eventType="valueChanged" id="ZQo-xv-0WB"/>
+                            </connections>
+                        </slider>
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="T4v-EI-MfO">
+                            <rect key="frame" x="144" y="37" width="152" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <connections>
+                                <action selector="softSliderChange:" destination="-1" eventType="valueChanged" id="8kP-1d-tep"/>
+                            </connections>
+                        </slider>
+                        <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Oun-2X-p2u">
+                            <rect key="frame" x="144" y="0.0" width="152" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <connections>
+                                <action selector="blurSliderChange2:" destination="-1" eventType="valueChanged" id="6NE-mb-a4h"/>
+                            </connections>
+                        </slider>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5k-RK-1l5">
+                            <rect key="frame" x="302" y="14" width="63" height="72"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="拍照"/>
                             <connections>
                                 <action selector="takePhoto:" destination="-1" eventType="touchUpInside" id="3la-2Y-00A"/>
@@ -126,10 +157,6 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="C5k-RK-1l5" secondAttribute="trailing" constant="100" id="0IS-La-xcD"/>
-                        <constraint firstItem="C5k-RK-1l5" firstAttribute="top" secondItem="HhC-ac-mQG" secondAttribute="top" id="N2r-Sz-Pgk"/>
-                        <constraint firstAttribute="bottom" secondItem="C5k-RK-1l5" secondAttribute="bottom" id="ULT-Se-f0N"/>
-                        <constraint firstItem="C5k-RK-1l5" firstAttribute="leading" secondItem="HhC-ac-mQG" secondAttribute="leading" constant="100" id="hZd-BY-sXZ"/>
                         <constraint firstAttribute="height" constant="100" id="hgj-Gk-gfk"/>
                     </constraints>
                 </view>
