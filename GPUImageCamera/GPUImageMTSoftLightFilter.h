@@ -12,8 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GPUImageMTSoftLightFilter : GPUImageTwoInputFilter
 {
-    GLfloat alpha, softLightAlpha;
-    GLint alphaUniform, softLightAlphaUniform;
+    GLfloat softLightAlpha;
+    GLint softLightAlphaUniform;
 }
 @end
 

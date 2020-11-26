@@ -12,13 +12,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GPUImageMTSoftProcessFilter : GPUImageTwoInputFilter
 {
-    GLfloat textureWidthOffset, textureHeightOffset, alpha;
+    GLfloat textureWidthOffset, textureHeightOffset;
     GLint textureWidthOffsetUniform, textureHeightOffsetUniform, alphaUniform;
-    GLfloat kernel[16];
+    GLfloat kernel[17];
     GLint kernelUniform;
 }
 
 @property (nonatomic, assign) GLfloat samplerInterval;
+@property (nonatomic, assign) GLfloat alpha;
 
 @end
 

@@ -29,7 +29,6 @@ NSString *const kGPUImageMTSoftLightFragmentShaderString = SHADER_STRING
  
  uniform sampler2D inputImageTexture;
  uniform sampler2D inputImageTexture2;
- uniform float alpha;
  uniform float softLightAlpha;
  
  float SoftLight_Fcn(float A, float B)
@@ -66,10 +65,8 @@ NSString *const kGPUImageMTSoftLightFragmentShaderString = SHADER_STRING
 
 - (id)init {
     if ((self = [super initWithVertexShaderFromString:kGPUImageMTSoftLightVertexShaderString fragmentShaderFromString:kGPUImageMTSoftLightFragmentShaderString])) {
-        alpha = 1.0f;
         softLightAlpha = 0.36f;
         runSynchronouslyOnVideoProcessingQueue(^{
-            self->alphaUniform = [self->filterProgram uniformIndex:@"alpha"];
             self->softLightAlphaUniform = [self->filterProgram uniformIndex:@"softLightAlpha"];
         });
     }
@@ -106,7 +103,6 @@ NSString *const kGPUImageMTSoftLightFragmentShaderString = SHADER_STRING
     glVertexAttribPointer(filterPositionAttribute, 2, GL_FLOAT, 0, 0, vertices);
     glVertexAttribPointer(filterTextureCoordinateAttribute, 2, GL_FLOAT, 0, 0, textureCoordinates);
 
-    glUniform1f(alphaUniform, alpha);
     glUniform1f(softLightAlphaUniform, softLightAlpha);
     
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);

@@ -35,7 +35,7 @@ NSString *const kGPUImageMTSoftProcessFragmentShaderString = SHADER_STRING
  uniform float textureHeightOffset;
  uniform float alpha;
  
- uniform float kernel[16];
+ uniform float kernel[17];
  
  float sdEllipse( in vec2 p, in vec2 ab )
  {
@@ -93,7 +93,7 @@ NSString *const kGPUImageMTSoftProcessFragmentShaderString = SHADER_STRING
      float sumWeight = kernel[0];
      vec4 sumColor = origColor*kernel[0];
      vec2 directionUV = vec2(cos(direction), sin(direction)) * shiftingSize;
-     for (int i = 1; i < 16; ++i) {
+     for (int i = 1; i < 17; ++i) {
          vec2 offset = directionUV * float(i);
          vec4 color1 = texture2D(inputImageTexture, uv + offset);
          vec4 color2 = texture2D(inputImageTexture, uv - offset);
@@ -112,9 +112,9 @@ NSString *const kGPUImageMTSoftProcessFragmentShaderString = SHADER_STRING
 - (id)init {
     if ((self = [super initWithVertexShaderFromString:kGPUImageMTSoftProcessVertexShaderString fragmentShaderFromString:kGPUImageMTSoftProcessFragmentShaderString])) {
         _samplerInterval = 0.6f;//0.8f;
-        alpha = 0.82f;
-        GLfloat kernelf[16] = {0.013298, 0.013291, 0.013269, 0.013232, 0.013180, 0.013115, 0.013035, 0.012941, 0.012834, 0.012713, 0.012579, 0.012434, 0.012276, 0.012106, 0.011926, 0.011736};
-        for (int i = 0; i < 16; i++) {
+        _alpha = 0.82f;
+        GLfloat kernelf[17] = {0.013298, 0.013291, 0.013269, 0.013232, 0.013180, 0.013115, 0.013035, 0.012941, 0.012834, 0.012713, 0.012579, 0.012434, 0.012276, 0.012106, 0.011926, 0.011736, 0.011535};
+        for (int i = 0; i < 17; i++) {
             kernel[i] = kernelf[i];
         }
         runSynchronouslyOnVideoProcessingQueue(^{
@@ -168,8 +168,8 @@ NSString *const kGPUImageMTSoftProcessFragmentShaderString = SHADER_STRING
 
     glUniform1f(textureWidthOffsetUniform, textureWidthOffset);
     glUniform1f(textureHeightOffsetUniform, textureHeightOffset);
-    glUniform1f(alphaUniform, alpha);
-    glUniform1fv(kernelUniform, 16, kernel);
+    glUniform1f(alphaUniform, _alpha);
+    glUniform1fv(kernelUniform, 17, kernel);
     
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
     
