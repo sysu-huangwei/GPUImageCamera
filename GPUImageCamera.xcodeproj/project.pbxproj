@@ -24,6 +24,8 @@
 		FCA4AE59256E51D0006AE2BA /* GPUImageMTGradientFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE58256E51D0006AE2BA /* GPUImageMTGradientFilter.m */; };
 		FCA4AE5C256E54C1006AE2BA /* GPUImageMTSoftProcessFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE5B256E54C1006AE2BA /* GPUImageMTSoftProcessFilter.m */; };
 		FCA4AE5F256E74A6006AE2BA /* GPUImageMTSoftLightFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE5E256E74A6006AE2BA /* GPUImageMTSoftLightFilter.m */; };
+		FCA4AE63256F8411006AE2BA /* BaseGLUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE61256F8411006AE2BA /* BaseGLUtils.cpp */; };
+		FCA4AE67256F8468006AE2BA /* BaseLog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE65256F8467006AE2BA /* BaseLog.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +62,11 @@
 		FCA4AE5B256E54C1006AE2BA /* GPUImageMTSoftProcessFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageMTSoftProcessFilter.m; sourceTree = "<group>"; };
 		FCA4AE5D256E74A6006AE2BA /* GPUImageMTSoftLightFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageMTSoftLightFilter.h; sourceTree = "<group>"; };
 		FCA4AE5E256E74A6006AE2BA /* GPUImageMTSoftLightFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageMTSoftLightFilter.m; sourceTree = "<group>"; };
+		FCA4AE61256F8411006AE2BA /* BaseGLUtils.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BaseGLUtils.cpp; sourceTree = "<group>"; };
+		FCA4AE62256F8411006AE2BA /* BaseGLUtils.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BaseGLUtils.hpp; sourceTree = "<group>"; };
+		FCA4AE64256F8467006AE2BA /* BaseDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDefine.h; sourceTree = "<group>"; };
+		FCA4AE65256F8467006AE2BA /* BaseLog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseLog.cpp; sourceTree = "<group>"; };
+		FCA4AE66256F8467006AE2BA /* BaseLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseLog.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +111,7 @@
 		C5224799221FEC9100FBE21D /* GPUImageCamera */ = {
 			isa = PBXGroup;
 			children = (
+				FCA4AE60256F8369006AE2BA /* OpenGL */,
 				C522479A221FEC9100FBE21D /* AppDelegate.h */,
 				C522479B221FEC9100FBE21D /* AppDelegate.m */,
 				C522479D221FEC9100FBE21D /* ViewController.h */,
@@ -143,6 +151,18 @@
 				379CAF6597E65FCFF1462E0A /* libPods-GPUImageCamera.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FCA4AE60256F8369006AE2BA /* OpenGL */ = {
+			isa = PBXGroup;
+			children = (
+				FCA4AE64256F8467006AE2BA /* BaseDefine.h */,
+				FCA4AE65256F8467006AE2BA /* BaseLog.cpp */,
+				FCA4AE66256F8467006AE2BA /* BaseLog.h */,
+				FCA4AE61256F8411006AE2BA /* BaseGLUtils.cpp */,
+				FCA4AE62256F8411006AE2BA /* BaseGLUtils.hpp */,
+			);
+			path = OpenGL;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,7 +292,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCA4AE67256F8468006AE2BA /* BaseLog.cpp in Sources */,
 				C5EF9D662224253000F57B2C /* CameraViewController.m in Sources */,
+				FCA4AE63256F8411006AE2BA /* BaseGLUtils.cpp in Sources */,
 				FCA4AE50256E44D8006AE2BA /* GPUImageMTGaussianVerticalBlurFilter.m in Sources */,
 				FCA4AE482567B1B0006AE2BA /* GPUImageOilFilter.m in Sources */,
 				C522479F221FEC9100FBE21D /* ViewController.m in Sources */,
