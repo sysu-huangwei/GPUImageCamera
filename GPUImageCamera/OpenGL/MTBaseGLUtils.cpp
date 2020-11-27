@@ -1,11 +1,11 @@
 //
-//  BaseGLUtils.cpp
+//  MTBaseGLUtils.cpp
 //  GPUImageCamera
 //
 //  Created by rayyy on 2020/11/26.
 //
 
-#include "BaseGLUtils.hpp"
+#include "MTBaseGLUtils.hpp"
 #include <stdio.h>
 
 unsigned BaseGLUtils::loadShader(int shaderType, const char *source) {

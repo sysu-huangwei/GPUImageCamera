@@ -2,8 +2,8 @@
 // Created by HW on 2020/4/20.
 //
 
-#ifndef SMARTKIT_BASEDEFINE_H
-#define SMARTKIT_BASEDEFINE_H
+#ifndef MTBASEDEFINE_H
+#define MTBASEDEFINE_H
 
 
 #if defined(WIN32) || defined(_WIN32) || defined(_WIN32_) || defined(WIN64) || defined(_WIN64) || defined(_WIN64_)
@@ -33,4 +33,4 @@
 #define STRINGIZE2(x) STRINGIZE(x)
 #define SHADER_STRING(text) STRINGIZE2(text)
 
-#endif //SMARTKIT_BASEDEFINE_H
+#endif //MTBASEDEFINE_H

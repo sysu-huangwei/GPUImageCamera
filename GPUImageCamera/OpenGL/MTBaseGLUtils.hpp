@@ -1,15 +1,15 @@
 //
-//  BaseGLUtils.hpp
+//  MTBaseGLUtils.hpp
 //  GPUImageCamera
 //
 //  Created by rayyy on 2020/11/26.
 //
 
-#ifndef BaseGLUtils_hpp
-#define BaseGLUtils_hpp
+#ifndef MTBaseGLUtils_hpp
+#define MTBaseGLUtils_hpp
 
-#include "BaseDefine.h"
-#include "BaseLog.h"
+#include "MTBaseDefine.h"
+#include "MTBaseLog.h"
 
 #if PLATFORM_ANDROID
 #include <GLES2/gl2.h>
@@ -79,4 +79,4 @@ public:
 
 
 
-#endif /* BaseGLUtils_hpp */
+#endif /* MTBaseGLUtils_hpp */

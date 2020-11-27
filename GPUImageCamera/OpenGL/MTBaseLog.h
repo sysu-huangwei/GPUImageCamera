@@ -2,10 +2,10 @@
 // Created by HW on 2020/4/20.
 //
 
-#ifndef SMARTKIT_BASELOG_H
-#define SMARTKIT_BASELOG_H
+#ifndef MTBASELOG_H
+#define MTBASELOG_H
 
-#include "BaseDefine.h"
+#include "MTBaseDefine.h"
 
 #define LOG_TAG "rayyy"
 
@@ -56,4 +56,4 @@ extern "C" int BASE_GetLogLevel();
 #endif // !PLATFORM_ANDROID
 
 
-#endif //SMARTKIT_BASELOG_H
+#endif //MTBASELOG_H

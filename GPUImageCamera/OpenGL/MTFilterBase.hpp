@@ -8,7 +8,7 @@
 #ifndef MTFilterBase_hpp
 #define MTFilterBase_hpp
 
-#include "BaseGLUtils.hpp"
+#include "MTBaseGLUtils.hpp"
 
 // 顶点坐标
 const static float imageVertices[8] = {

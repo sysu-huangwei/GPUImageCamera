@@ -2,7 +2,7 @@
 // Created by HW on 2020/4/20.
 //
 
-#include "BaseLog.h"
+#include "MTBaseLog.h"
 
 static int sBaseLogLevel = BASE_LOG_LEVEL_ALL;
 
