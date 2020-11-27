@@ -107,19 +107,7 @@ const char *kMTFilterSoftProcessFragmentShaderString = SHADER_STRING
 );
 
 MTFilterSoftProcess::MTFilterSoftProcess() {
-    inputImageTextureUniform = 0;
-    processTextureUniform = 0;
-    srcTextureID = 0;
-    processTextureID = 0;
-    textureWidthOffset = 0.0f;
-    textureHeightOffset = 0.0f;
-    alpha = 0.82f;
-    textureWidthOffsetUniform = 0;
-    textureHeightOffsetUniform = 0;
-    alphaUniform = 0;
-    kernelUniform = 0;
-    refResolution = 1024.0f;
-    samplerInterval = 0.8f;
+    
 }
 
 MTFilterSoftProcess::~MTFilterSoftProcess() {

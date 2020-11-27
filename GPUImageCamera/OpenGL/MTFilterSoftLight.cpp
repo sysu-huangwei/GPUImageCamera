@@ -61,12 +61,7 @@ const char *kMTFilterSoftLightFragmentShaderString = SHADER_STRING
 );
 
 MTFilterSoftLight::MTFilterSoftLight() {
-    inputImageTextureUniform = 0;
-    overlayTextureUniform = 0;
-    srcTextureID = 0;
-    overlayTextureID = 0;
-    softLightAlphaUniform = 0;
-    softLightAlpha = 0.36f;
+    
 }
 
 MTFilterSoftLight::~MTFilterSoftLight() {

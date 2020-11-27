@@ -41,13 +41,14 @@ public:
     virtual void setOutsideTextureAndFbo(unsigned textureIDOutside, unsigned fboIDOutside);
     
 protected:
-    int width, height;
-    unsigned textureID, fboID, programID;
-    int positionAttribute, textureCoordinateAttribute;
+    int width = 0, height = 0;
+    unsigned textureID = 0, fboID = 0, programID = 0;
+    int positionAttribute = -1, textureCoordinateAttribute = -1;
+    
     virtual void initWithVertexStringAndFragmentString(const char* vs, const char* fs);
     
-    unsigned textureIDOutside, fboIDOutside;
-    bool isRenderToOutside;
+    unsigned textureIDOutside = 0, fboIDOutside = 0;
+    bool isRenderToOutside = false;
 };
 
 #endif /* MTFilterBase_hpp */

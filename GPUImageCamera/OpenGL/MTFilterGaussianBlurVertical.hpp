@@ -24,12 +24,13 @@ public:
     void setSamplerInterval(float samplerInterval);
     
 private:
-    int inputImageTextureUniform;
-    unsigned srcTextureID;
-    float singleStepOffset;
-    int singleStepOffsetUniform;
+    int inputImageTextureUniform = -1;
+    unsigned srcTextureID = 0;
     
-    float samplerInterval;
+    float singleStepOffset = 0.0f;
+    int singleStepOffsetUniform = -1;
+    
+    float samplerInterval = 1.0f;
 };
 
 #endif /* MTFilterGaussianBlurVertical_hpp */

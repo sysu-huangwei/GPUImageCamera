@@ -28,12 +28,14 @@ public:
     void setSamplerInterval(float samplerInterval);
     
 private:
-    int inputImageTextureUniform, processTextureUniform;
-    unsigned srcTextureID, processTextureID;
-    float textureWidthOffset, textureHeightOffset, alpha, kernel[KERNEL_SIZE] = {0.013298, 0.013291, 0.013269, 0.013232, 0.013180, 0.013115, 0.013035, 0.012941, 0.012834, 0.012713, 0.012579, 0.012434, 0.012276, 0.012106, 0.011926, 0.011736, 0.011535};
-    int textureWidthOffsetUniform, textureHeightOffsetUniform, alphaUniform, kernelUniform;
+    int inputImageTextureUniform = -1, processTextureUniform = -1;
+    unsigned srcTextureID = 0, processTextureID = 0;
     
-    float refResolution, samplerInterval;
+    float textureWidthOffset = 0.0f, textureHeightOffset = 0.0f, alpha = 0.82f;
+    float kernel[KERNEL_SIZE] = {0.013298, 0.013291, 0.013269, 0.013232, 0.013180, 0.013115, 0.013035, 0.012941, 0.012834, 0.012713, 0.012579, 0.012434, 0.012276, 0.012106, 0.011926, 0.011736, 0.011535};
+    int textureWidthOffsetUniform = -1, textureHeightOffsetUniform = -1, alphaUniform = -1, kernelUniform = -1;
+    
+    float refResolution = 1024.0f, samplerInterval = 0.8f;
 };
 
 #endif /* MTFilterSoftProcess_hpp */

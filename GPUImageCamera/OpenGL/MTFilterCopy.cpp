@@ -35,8 +35,7 @@ const char *kMTFilterCopyFragmentShaderString = SHADER_STRING
 );
 
 MTFilterCopy::MTFilterCopy():MTFilterBase() {
-    inputImageTextureUniform = 0;
-    srcTextureID = 0;
+    
 }
 
 MTFilterCopy::~MTFilterCopy() {

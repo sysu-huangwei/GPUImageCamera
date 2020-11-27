@@ -22,10 +22,11 @@ public:
     void setSrcTextureID(unsigned srcTextureID);
     
 private:
-    int inputImageTextureUniform;
-    unsigned srcTextureID;
-    float textureWidthOffset, textureHeightOffset;
-    int textureWidthOffsetUniform, textureHeightOffsetUniform;
+    int inputImageTextureUniform = -1;
+    unsigned srcTextureID = 0;
+    
+    float textureWidthOffset = 0.0f, textureHeightOffset = 0.0f;
+    int textureWidthOffsetUniform = -1, textureHeightOffsetUniform = -1;
 };
 
 #endif /* MTFilterGradient_hpp */

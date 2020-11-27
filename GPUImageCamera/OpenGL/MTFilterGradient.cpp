@@ -56,12 +56,7 @@ const char *kMTFilterGradientFragmentShaderString = SHADER_STRING
 );
 
 MTFilterGradient::MTFilterGradient() {
-    inputImageTextureUniform = 0;
-    srcTextureID = 0;
-    textureWidthOffset = 0.0f;
-    textureHeightOffset = 0.0f;
-    textureWidthOffsetUniform = 0;
-    textureHeightOffsetUniform = 0;
+    
 }
 
 MTFilterGradient::~MTFilterGradient() {

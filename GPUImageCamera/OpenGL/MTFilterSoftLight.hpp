@@ -22,10 +22,11 @@ public:
     void setOverlayTextureID(unsigned overlayTextureID);
     
 private:
-    int inputImageTextureUniform, overlayTextureUniform;
-    unsigned srcTextureID, overlayTextureID;
-    float softLightAlpha;
-    int softLightAlphaUniform;
+    int inputImageTextureUniform = -1, overlayTextureUniform = -1;
+    unsigned srcTextureID = 0, overlayTextureID = 0;
+    
+    float softLightAlpha = 0.36f;
+    int softLightAlphaUniform = -1;
 };
 
 

@@ -21,8 +21,8 @@ public:
     void setSrcTextureID(unsigned srcTextureID);
     
 private:
-    int inputImageTextureUniform;
-    unsigned srcTextureID;
+    int inputImageTextureUniform = -1;
+    unsigned srcTextureID = 0;
 };
 
 #endif /* MTFilterCopy_hpp */

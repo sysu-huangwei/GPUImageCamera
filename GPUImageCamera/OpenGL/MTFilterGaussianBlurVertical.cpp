@@ -57,11 +57,7 @@ const char *kMTFilterGaussianBlurBaseFragmentShaderString_Vertical = SHADER_STRI
 );
 
 MTFilterGaussianBlurVertical::MTFilterGaussianBlurVertical() {
-    inputImageTextureUniform = 0;
-    srcTextureID = 0;
-    singleStepOffset = 0.0f;
-    singleStepOffsetUniform = 0;
-    samplerInterval = 1.0f;
+    
 }
 
 MTFilterGaussianBlurVertical::~MTFilterGaussianBlurVertical() {

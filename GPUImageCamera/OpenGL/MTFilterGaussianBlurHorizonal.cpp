@@ -57,11 +57,7 @@ const char *kMTFilterGaussianBlurBaseFragmentShaderString_Horizonal = SHADER_STR
 );
 
 MTFilterGaussianBlurHorizonal::MTFilterGaussianBlurHorizonal() {
-    inputImageTextureUniform = 0;
-    srcTextureID = 0;
-    singleStepOffset = 0.0f;
-    singleStepOffsetUniform = 0;
-    samplerInterval = 1.0f;
+    
 }
 
 MTFilterGaussianBlurHorizonal::~MTFilterGaussianBlurHorizonal() {
