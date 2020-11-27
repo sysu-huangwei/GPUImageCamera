@@ -17,6 +17,7 @@ MTFilterToonifyBackground::MTFilterToonifyBackground() {
     softProcessFilter = new MTFilterSoftProcess();
     gaussianBlurFilter3 = new MTFilterGaussianBlur();
     softLightFilter = new MTFilterSoftLight();
+    config = DefaultConfig;
 }
 
 MTFilterToonifyBackground::~MTFilterToonifyBackground() {
@@ -29,16 +30,20 @@ MTFilterToonifyBackground::~MTFilterToonifyBackground() {
 }
 
 void MTFilterToonifyBackground::init() {
+    gaussianBlurFilter1->setSamplerInterval(config.gradNoiseSamplerInterval);
+    gaussianBlurFilter2->setSamplerInterval(config.gradBlurSamplerInterval);
+    softProcessFilter->setRefResolution(config.refResolution);
+    softProcessFilter->setSamplerInterval(config.samplerInterval);
+    softProcessFilter->setAlpha(config.softAlpha);
+    gaussianBlurFilter3->setSamplerInterval(1.5f);
+    softLightFilter->setSoftLightAlpha(config.softAlpha);
+    
     gaussianBlurFilter1->init();
     gradientFilter->init();
     gaussianBlurFilter2->init();
     softProcessFilter->init();
     gaussianBlurFilter3->init();
     softLightFilter->init();
-    gaussianBlurFilter1->setSamplerInterval(0.9f);
-    gaussianBlurFilter2->setSamplerInterval(2.8f);
-    softProcessFilter->setSamplerInterval(0.8f);
-    gaussianBlurFilter3->setSamplerInterval(1.5f);
 }
 
 void MTFilterToonifyBackground::release() {
@@ -51,7 +56,7 @@ void MTFilterToonifyBackground::release() {
 }
 
 void MTFilterToonifyBackground::resize(int width, int height) {
-    int scaleMaxSize = 640;
+    int scaleMaxSize = config.scaleMaxSize;
     int scaleWidth, scaleHeight;
     if (height >= width) {
         scaleHeight = scaleMaxSize;
@@ -95,4 +100,12 @@ void MTFilterToonifyBackground::setOutsideTextureAndFbo(unsigned textureIDOutsid
 void MTFilterToonifyBackground::setSrcTextureID(unsigned srcTextureID) {
     gaussianBlurFilter1->setSrcTextureID(srcTextureID);
     softProcessFilter->setSrcTextureID(srcTextureID);
+}
+
+ToonifyBackgroundConfig MTFilterToonifyBackground::getConfig() {
+    return config;
+}
+
+void MTFilterToonifyBackground::setConfig(ToonifyBackgroundConfig config) {
+    this->config = config;
 }
