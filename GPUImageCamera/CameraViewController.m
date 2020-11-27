@@ -29,6 +29,10 @@ typedef NS_ENUM (NSInteger, CurrentState) {
 @property (strong, nonatomic) IBOutlet UISlider *blurSlider2;
 @property (strong, nonatomic) IBOutlet UISlider *blurSlider3;
 @property (strong, nonatomic) IBOutlet UISlider *softSlider;
+@property (strong, nonatomic) IBOutlet UILabel *label1;
+@property (strong, nonatomic) IBOutlet UILabel *label2;
+@property (strong, nonatomic) IBOutlet UILabel *label3;
+@property (strong, nonatomic) IBOutlet UILabel *label4;
 @property (strong, nonatomic) NSMutableArray* filters; //当前的滤镜链
 @property (strong, nonatomic) GPUImageView* imageView;
 @property (assign) CurrentState currentState; //当前处于预览还是拍后
@@ -49,6 +53,11 @@ typedef NS_ENUM (NSInteger, CurrentState) {
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
+    [_label1 setText:@"0.90"];
+    [_label2 setText:@"2.80"];
+    [_label3 setText:@"0.80"];
+    [_label4 setText:@"0.82"];
     
     _currentState = CurrentStateTakingPhoto;
     
@@ -243,6 +252,7 @@ typedef NS_ENUM (NSInteger, CurrentState) {
         UISlider *slider = (UISlider *)sender;
         float realValue = slider.value * 2.0f;
         [_toonifyBackgroundFilter setGradNoiseSamplerInterval:realValue];
+        [_label1 setText:[NSString stringWithFormat:@"%.2f", realValue]];
 //        [_blurFilter1 setSamplerInterval:realValue];
 //        [_picture processImage];
     }
@@ -254,6 +264,7 @@ typedef NS_ENUM (NSInteger, CurrentState) {
         UISlider *slider = (UISlider *)sender;
         float realValue = slider.value * 6.0f;
         [_toonifyBackgroundFilter setGradBlurSamplerInterval:realValue];
+        [_label2 setText:[NSString stringWithFormat:@"%.2f", realValue]];
 //        [_blurFilter2 setSamplerInterval:realValue];
 //        [_picture processImage];
     }
@@ -264,6 +275,7 @@ typedef NS_ENUM (NSInteger, CurrentState) {
         UISlider *slider = (UISlider *)sender;
         float realValue = slider.value * 3.0f;
         [_toonifyBackgroundFilter setSamplerInterval:realValue];
+        [_label3 setText:[NSString stringWithFormat:@"%.2f", realValue]];
 //        [_blurFilter3 setSamplerInterval:realValue];
 //        [_picture processImage];
     }
@@ -276,6 +288,7 @@ typedef NS_ENUM (NSInteger, CurrentState) {
         UISlider *slider = (UISlider *)sender;
         float realValue = slider.value * 1.0f;
         [_toonifyBackgroundFilter setSoftAlpha:realValue];
+        [_label4 setText:[NSString stringWithFormat:@"%.2f", realValue]];
 //        [_softProcessFilter setAlpha:realValue];
 //        [_softProcessFilter setSamplerInterval:realValue];
 //        [_picture processImage];
