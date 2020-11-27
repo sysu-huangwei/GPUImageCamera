@@ -175,3 +175,7 @@ void MTFilterSoftProcess::setRefResolution(float refResolution) {
 void MTFilterSoftProcess::setSamplerInterval(float samplerInterval) {
     this->samplerInterval = samplerInterval;
 }
+
+void MTFilterSoftProcess::setAlpha(float alpha) {
+    this->alpha = alpha;
+}

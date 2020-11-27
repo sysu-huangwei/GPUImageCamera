@@ -108,3 +108,7 @@ void MTFilterSoftLight::setSrcTextureID(unsigned srcTextureID) {
 void MTFilterSoftLight::setOverlayTextureID(unsigned overlayTextureID) {
     this->overlayTextureID = overlayTextureID;
 }
+
+void MTFilterSoftLight::setSoftLightAlpha(float softLightAlpha) {
+    this->softLightAlpha = softLightAlpha;
+}
