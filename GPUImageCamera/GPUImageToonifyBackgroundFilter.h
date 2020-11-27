@@ -19,7 +19,10 @@ extern "C" {
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GPUImageToonifyBackgroundFilter : GPUImageFilter
-
+@property (nonatomic, assign) float gradNoiseSamplerInterval;
+@property (nonatomic, assign) float gradBlurSamplerInterval;
+@property (nonatomic, assign) float samplerInterval;
+@property (nonatomic, assign) float softAlpha;
 @end
 
 NS_ASSUME_NONNULL_END

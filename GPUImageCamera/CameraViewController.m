@@ -242,6 +242,7 @@ typedef NS_ENUM (NSInteger, CurrentState) {
     if ([sender isKindOfClass:[UISlider class]]) {
         UISlider *slider = (UISlider *)sender;
         float realValue = slider.value * 2.0f;
+        [_toonifyBackgroundFilter setGradNoiseSamplerInterval:realValue];
 //        [_blurFilter1 setSamplerInterval:realValue];
 //        [_picture processImage];
     }
@@ -252,6 +253,7 @@ typedef NS_ENUM (NSInteger, CurrentState) {
     if ([sender isKindOfClass:[UISlider class]]) {
         UISlider *slider = (UISlider *)sender;
         float realValue = slider.value * 6.0f;
+        [_toonifyBackgroundFilter setGradBlurSamplerInterval:realValue];
 //        [_blurFilter2 setSamplerInterval:realValue];
 //        [_picture processImage];
     }
@@ -260,7 +262,8 @@ typedef NS_ENUM (NSInteger, CurrentState) {
 - (IBAction)blurSliderChange3:(id)sender {
     if ([sender isKindOfClass:[UISlider class]]) {
         UISlider *slider = (UISlider *)sender;
-        float realValue = slider.value * 2.0f;
+        float realValue = slider.value * 3.0f;
+        [_toonifyBackgroundFilter setSamplerInterval:realValue];
 //        [_blurFilter3 setSamplerInterval:realValue];
 //        [_picture processImage];
     }
@@ -272,6 +275,7 @@ typedef NS_ENUM (NSInteger, CurrentState) {
     if ([sender isKindOfClass:[UISlider class]]) {
         UISlider *slider = (UISlider *)sender;
         float realValue = slider.value * 1.0f;
+        [_toonifyBackgroundFilter setSoftAlpha:realValue];
 //        [_softProcessFilter setAlpha:realValue];
 //        [_softProcessFilter setSamplerInterval:realValue];
 //        [_picture processImage];

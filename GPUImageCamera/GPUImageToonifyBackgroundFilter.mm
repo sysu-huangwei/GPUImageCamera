@@ -99,4 +99,32 @@
     }
 }
 
+- (void)setGradNoiseSamplerInterval:(float)gradNoiseSamplerInterval {
+    _gradNoiseSamplerInterval = gradNoiseSamplerInterval;
+    ToonifyBackgroundConfig config = toonifyBackgroundFilter->getConfig();
+    config.gradNoiseSamplerInterval = gradNoiseSamplerInterval;
+    toonifyBackgroundFilter->setConfig(config);
+}
+
+- (void)setGradBlurSamplerInterval:(float)gradBlurSamplerInterval {
+    _gradBlurSamplerInterval = gradBlurSamplerInterval;
+    ToonifyBackgroundConfig config = toonifyBackgroundFilter->getConfig();
+    config.gradBlurSamplerInterval = gradBlurSamplerInterval;
+    toonifyBackgroundFilter->setConfig(config);
+}
+
+- (void)setSamplerInterval:(float)samplerInterval {
+    _samplerInterval = samplerInterval;
+    ToonifyBackgroundConfig config = toonifyBackgroundFilter->getConfig();
+    config.samplerInterval = samplerInterval;
+    toonifyBackgroundFilter->setConfig(config);
+}
+
+- (void)setSoftAlpha:(float)softAlpha {
+    _softAlpha = softAlpha;
+    ToonifyBackgroundConfig config = toonifyBackgroundFilter->getConfig();
+    config.softAlpha = softAlpha;
+    toonifyBackgroundFilter->setConfig(config);
+}
+
 @end
