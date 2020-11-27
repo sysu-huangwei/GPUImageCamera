@@ -7,7 +7,7 @@
 
 #include "BaseDefine.h"
 
-#define LOG_TAG "hw1"
+#define LOG_TAG "rayyy"
 
 /**
  * log等级

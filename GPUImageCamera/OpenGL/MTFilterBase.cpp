@@ -3,7 +3,6 @@
 //  GPUImageCamera
 //
 //  Created by rayyy on 2020/11/26.
-//  Copyright © 2020 meitu. All rights reserved.
 //
 
 #include "MTFilterBase.hpp"
