@@ -26,6 +26,10 @@
     return self;
 }
 
+- (void)removeAllTargets {
+    [_camera removeAllTargets];
+}
+
 - (void)setFilters:(NSMutableArray<GPUImageOutput<GPUImageInput> *> *)filters {
     _filters = filters;
     for (id filter in filters) {

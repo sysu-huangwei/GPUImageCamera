@@ -51,6 +51,17 @@
     return self;
 }
 
+- (void)dealloc {
+    runSynchronouslyOnVideoProcessingQueue(^{
+        self->gaussianBlurFilter1->release();
+        self->gradientFilter->release();
+        self->gaussianBlurFilter2->release();
+        self->softProcessFilter->release();
+        self->gaussianBlurFilter3->release();
+        self->softLightFilter->release();
+    });
+}
+
 - (void)setupFilterForSize:(CGSize)filterFrameSize;
 {
     runSynchronouslyOnVideoProcessingQueue(^{

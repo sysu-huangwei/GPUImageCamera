@@ -149,7 +149,7 @@
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C5k-RK-1l5">
                             <rect key="frame" x="302" y="14" width="63" height="72"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="拍照"/>
+                            <state key="normal" title="原图"/>
                             <connections>
                                 <action selector="takePhoto:" destination="-1" eventType="touchUpInside" id="3la-2Y-00A"/>
                             </connections>

@@ -32,6 +32,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) id<GPUImageInput> outputFilter; //最终输出的位置
 
 
+- (void)removeAllTargets;
+
 /**
  打开相机
  */

@@ -41,12 +41,6 @@ typedef NS_ENUM (NSInteger, CurrentState) {
 @property (strong, nonatomic) GPUImageOutput <GPUImageInput> *filter;
 @property (strong, nonatomic) GPUImagePicture *lutPicture;
 @property (strong, nonatomic) GPUImageLookupFilter *lutFilter;
-@property (strong, nonatomic) GPUImageMTGaussianBlurFilter *blurFilter1;
-@property (strong, nonatomic) GPUImageMTGradientFilter *gradientFilter;
-@property (strong, nonatomic) GPUImageMTGaussianBlurFilter *blurFilter2;
-@property (strong, nonatomic) GPUImageMTSoftProcessFilter *softProcessFilter;
-@property (strong, nonatomic) GPUImageMTGaussianBlurFilter *blurFilter3;
-@property (strong, nonatomic) GPUImageMTSoftLightFilter *softLightFilter;
 @property (strong, nonatomic) GPUImageToonifyBackgroundFilter *toonifyBackgroundFilter;
 @end
 
@@ -63,17 +57,11 @@ typedef NS_ENUM (NSInteger, CurrentState) {
     _lutPicture = [[GPUImagePicture alloc] initWithImage:lutImage];
     _lutFilter = [[GPUImageLookupFilter alloc] init];
     
-    NSString *file = [NSBundle.mainBundle.bundlePath stringByAppendingPathComponent:@"leiyi.jpg"];
+    NSString *file = [NSBundle.mainBundle.bundlePath stringByAppendingPathComponent:@"leiyi720x1280.png"];
     _originImage = [[UIImage alloc] initWithContentsOfFile:file];
 //    _picture = [[GPUImagePicture alloc] initWithImage:_originImage];
     
-    _filter = [[GPUImageMTGradientFilter alloc] init];
-    _blurFilter1 = [[GPUImageMTGaussianBlurFilter alloc] init];
-    _gradientFilter = [[GPUImageMTGradientFilter alloc] init];
-    _blurFilter2 = [[GPUImageMTGaussianBlurFilter alloc] init];
-    _softProcessFilter = [[GPUImageMTSoftProcessFilter alloc] init];
-    _blurFilter3 = [[GPUImageMTGaussianBlurFilter alloc] init];
-    _softLightFilter = [[GPUImageMTSoftLightFilter alloc] init];
+    _filter = [[GPUImageFilter alloc] init];
     _toonifyBackgroundFilter = [[GPUImageToonifyBackgroundFilter alloc] init];
     
     
@@ -95,7 +83,6 @@ typedef NS_ENUM (NSInteger, CurrentState) {
     _imageView = [[GPUImageView alloc] initWithFrame:_showView.bounds];
     [self.showView addSubview:_imageView];
     
-    [_softLightFilter addTarget:_imageView];
 //    [_picture addTarget:_filter];
 //    [_lutPicture addTarget:_filter];
 //    [_filter addTarget:_imageView];
@@ -110,19 +97,17 @@ typedef NS_ENUM (NSInteger, CurrentState) {
     
     //给相机控制器设置滤镜链
 //    [_cameraController setFilters:@[_blurFilter1, _softProcessFilter]];
-    id test = [GPUImageFilter new];
     [_cameraController setFilters:@[_toonifyBackgroundFilter]];
+//    [_picture addTarget:_toonifyBackgroundFilter];
     [_toonifyBackgroundFilter addTarget:_imageView];
+    
+//    [_picture useNextFrameForImageCapture];
+//    [_picture processImageUpToFilter:_toonifyBackgroundFilter withCompletionHandler:^(UIImage *processedImage) {
+//        NSLog(@"1");
+//    }];
     
 
     //    [_picture addTarget:_blurFilter1];
-        [_blurFilter1 addTarget:_gradientFilter];
-        [_gradientFilter addTarget:_blurFilter2];
-    //    [_picture addTarget:_softProcessFilter];
-        [_blurFilter2 addTarget:_softProcessFilter];
-        [_softProcessFilter addTarget:_blurFilter3];
-        [_softProcessFilter addTarget:_softLightFilter];
-        [_blurFilter3 addTarget:_softLightFilter];
     
     //给相机控制器设置输出界面
 //    [_cameraController setOutputFilter:_imageView];
@@ -144,21 +129,19 @@ typedef NS_ENUM (NSInteger, CurrentState) {
  拍照
  */
 - (IBAction)takePhoto:(id)sender {
-//    [_picture removeAllTargets];
-//    _showOrigin = !_showOrigin;
-//    if (_showOrigin) {
-//        [_picture addTarget:_imageView];
-//    } else {
-//        [_picture addTarget:_blurFilter1];
-//        [_blurFilter1 addTarget:_gradientFilter];
-//        [_gradientFilter addTarget:_blurFilter2];
-//        [_picture addTarget:_softProcessFilter];
-//        [_blurFilter2 addTarget:_softProcessFilter];
-//        [_softProcessFilter addTarget:_blurFilter3];
-//        [_softProcessFilter addTarget:_softLightFilter];
-//        [_blurFilter3 addTarget:_softLightFilter];
-//        [_softLightFilter addTarget:_imageView];
-//    }
+    [_cameraController stop];
+    [_cameraController removeAllTargets];
+    [_filter removeAllTargets];
+    [_toonifyBackgroundFilter removeAllTargets];
+    _showOrigin = !_showOrigin;
+    if (_showOrigin) {
+        [_cameraController setFilters:@[_filter]];
+        [_filter addTarget:_imageView];
+    } else {
+        [_cameraController setFilters:@[_toonifyBackgroundFilter]];
+        [_toonifyBackgroundFilter addTarget:_imageView];
+    }
+    [_cameraController open];
 ////    [_picture useNextFrameForImageCapture];
 //    if (!_showOrigin) {
 //        [_picture processImageUpToFilter:_softLightFilter withCompletionHandler:^(UIImage *processedImage) {
@@ -259,7 +242,7 @@ typedef NS_ENUM (NSInteger, CurrentState) {
     if ([sender isKindOfClass:[UISlider class]]) {
         UISlider *slider = (UISlider *)sender;
         float realValue = slider.value * 2.0f;
-        [_blurFilter1 setSamplerInterval:realValue];
+//        [_blurFilter1 setSamplerInterval:realValue];
 //        [_picture processImage];
     }
 }
@@ -269,7 +252,7 @@ typedef NS_ENUM (NSInteger, CurrentState) {
     if ([sender isKindOfClass:[UISlider class]]) {
         UISlider *slider = (UISlider *)sender;
         float realValue = slider.value * 6.0f;
-        [_blurFilter2 setSamplerInterval:realValue];
+//        [_blurFilter2 setSamplerInterval:realValue];
 //        [_picture processImage];
     }
 }
@@ -278,7 +261,7 @@ typedef NS_ENUM (NSInteger, CurrentState) {
     if ([sender isKindOfClass:[UISlider class]]) {
         UISlider *slider = (UISlider *)sender;
         float realValue = slider.value * 2.0f;
-        [_blurFilter3 setSamplerInterval:realValue];
+//        [_blurFilter3 setSamplerInterval:realValue];
 //        [_picture processImage];
     }
     NSLog(@"33333");
@@ -289,7 +272,7 @@ typedef NS_ENUM (NSInteger, CurrentState) {
     if ([sender isKindOfClass:[UISlider class]]) {
         UISlider *slider = (UISlider *)sender;
         float realValue = slider.value * 1.0f;
-        [_softProcessFilter setAlpha:realValue];
+//        [_softProcessFilter setAlpha:realValue];
 //        [_softProcessFilter setSamplerInterval:realValue];
 //        [_picture processImage];
     }
