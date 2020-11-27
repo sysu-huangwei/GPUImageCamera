@@ -46,8 +46,11 @@ void MTFilterBase::resize(int width, int height) {
         this->height = height;
         if (fboID > 0) {
             glDeleteFramebuffers(1, &fboID);
+            fboID = 0;
         }
-        fboID = BaseGLUtils::createFBO(textureID, width, height);
+        if (width > 0 && height > 0) {
+            fboID = BaseGLUtils::createFBO(textureID, width, height);
+        }
     }
 }
 
