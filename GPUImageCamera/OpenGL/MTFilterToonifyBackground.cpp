@@ -111,4 +111,11 @@ ToonifyBackgroundConfig MTFilterToonifyBackground::getConfig() {
 
 void MTFilterToonifyBackground::setConfig(ToonifyBackgroundConfig config) {
     this->config = config;
+    ((MTFilterGaussianBlur *)gaussianBlurFilter1)->setSamplerInterval(config.gradNoiseSamplerInterval);
+    ((MTFilterGaussianBlur *)gaussianBlurFilter2)->setSamplerInterval(config.gradBlurSamplerInterval);
+    ((MTFilterSoftProcess *)softProcessFilter)->setRefResolution(config.refResolution);
+    ((MTFilterSoftProcess *)softProcessFilter)->setSamplerInterval(config.samplerInterval);
+    ((MTFilterSoftProcess *)softProcessFilter)->setAlpha(config.softAlpha);
+    ((MTFilterGaussianBlur *)gaussianBlurFilter3)->setSamplerInterval(1.5f);
+    ((MTFilterSoftLight *)softLightFilter)->setSoftLightAlpha(config.softAlpha);
 }
