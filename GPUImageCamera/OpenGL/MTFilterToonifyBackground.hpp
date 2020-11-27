@@ -10,10 +10,6 @@
 #define MTFilterToonifyBackground_hpp
 
 #include "MTFilterBase.hpp"
-#include "MTFilterGaussianBlur.hpp"
-#include "MTFilterGradient.hpp"
-#include "MTFilterSoftProcess.hpp"
-#include "MTFilterSoftLight.hpp"
 
 /// 参数
 typedef struct ToonifyBackgroundConfig {
@@ -67,12 +63,12 @@ public:
     void setConfig(ToonifyBackgroundConfig config);
     
 private:
-    MTFilterGaussianBlur *gaussianBlurFilter1;
-    MTFilterGradient *gradientFilter;
-    MTFilterGaussianBlur *gaussianBlurFilter2;
-    MTFilterSoftProcess *softProcessFilter;
-    MTFilterGaussianBlur *gaussianBlurFilter3;
-    MTFilterSoftLight *softLightFilter;
+    MTFilterBase *gaussianBlurFilter1;
+    MTFilterBase *gradientFilter;
+    MTFilterBase *gaussianBlurFilter2;
+    MTFilterBase *softProcessFilter;
+    MTFilterBase *gaussianBlurFilter3;
+    MTFilterBase *softLightFilter;
     
     ToonifyBackgroundConfig config;
 };

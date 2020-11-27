@@ -9,6 +9,10 @@
 #include "MTFilterToonifyBackground.hpp"
 #include <stdio.h>
 #include <cmath>
+#include "MTFilterGaussianBlur.hpp"
+#include "MTFilterGradient.hpp"
+#include "MTFilterSoftProcess.hpp"
+#include "MTFilterSoftLight.hpp"
 
 MTFilterToonifyBackground::MTFilterToonifyBackground() {
     gaussianBlurFilter1 = new MTFilterGaussianBlur();
@@ -21,22 +25,22 @@ MTFilterToonifyBackground::MTFilterToonifyBackground() {
 }
 
 MTFilterToonifyBackground::~MTFilterToonifyBackground() {
-    SAFE_DELETE(gaussianBlurFilter1);
-    SAFE_DELETE(gradientFilter);
-    SAFE_DELETE(gaussianBlurFilter2);
-    SAFE_DELETE(softProcessFilter);
-    SAFE_DELETE(gaussianBlurFilter3);
-    SAFE_DELETE(softLightFilter);
+    delete (MTFilterGaussianBlur *)gaussianBlurFilter1;
+    delete (MTFilterGradient *)gradientFilter;
+    delete (MTFilterGaussianBlur *)gaussianBlurFilter2;
+    delete (MTFilterSoftProcess *)softProcessFilter;
+    delete (MTFilterGaussianBlur *)gaussianBlurFilter3;
+    delete (MTFilterSoftLight *)softLightFilter;
 }
 
 void MTFilterToonifyBackground::init() {
-    gaussianBlurFilter1->setSamplerInterval(config.gradNoiseSamplerInterval);
-    gaussianBlurFilter2->setSamplerInterval(config.gradBlurSamplerInterval);
-    softProcessFilter->setRefResolution(config.refResolution);
-    softProcessFilter->setSamplerInterval(config.samplerInterval);
-    softProcessFilter->setAlpha(config.softAlpha);
-    gaussianBlurFilter3->setSamplerInterval(1.5f);
-    softLightFilter->setSoftLightAlpha(config.softAlpha);
+    ((MTFilterGaussianBlur *)gaussianBlurFilter1)->setSamplerInterval(config.gradNoiseSamplerInterval);
+    ((MTFilterGaussianBlur *)gaussianBlurFilter2)->setSamplerInterval(config.gradBlurSamplerInterval);
+    ((MTFilterSoftProcess *)softProcessFilter)->setRefResolution(config.refResolution);
+    ((MTFilterSoftProcess *)softProcessFilter)->setSamplerInterval(config.samplerInterval);
+    ((MTFilterSoftProcess *)softProcessFilter)->setAlpha(config.softAlpha);
+    ((MTFilterGaussianBlur *)gaussianBlurFilter3)->setSamplerInterval(1.5f);
+    ((MTFilterSoftLight *)softLightFilter)->setSoftLightAlpha(config.softAlpha);
     
     gaussianBlurFilter1->init();
     gradientFilter->init();
@@ -76,20 +80,20 @@ void MTFilterToonifyBackground::resize(int width, int height) {
 unsigned MTFilterToonifyBackground::render() {
     GLuint gaussianBlurTextureID1 = gaussianBlurFilter1->render();
     
-    gradientFilter->setSrcTextureID(gaussianBlurTextureID1);
+    ((MTFilterGradient *)gradientFilter)->setSrcTextureID(gaussianBlurTextureID1);
     GLuint gradientTextureID = gradientFilter->render();
     
-    gaussianBlurFilter2->setSrcTextureID(gradientTextureID);
+    ((MTFilterGaussianBlur *)gaussianBlurFilter2)->setSrcTextureID(gradientTextureID);
     GLuint gaussianBlurTextureID2 = gaussianBlurFilter2->render();
     
-    softProcessFilter->setProcessTextureID(gaussianBlurTextureID2);
+    ((MTFilterSoftProcess *)softProcessFilter)->setProcessTextureID(gaussianBlurTextureID2);
     GLuint softProcessTextureID = softProcessFilter->render();
     
-    gaussianBlurFilter3->setSrcTextureID(softProcessTextureID);
+    ((MTFilterGaussianBlur *)gaussianBlurFilter3)->setSrcTextureID(softProcessTextureID);
     GLuint gaussianBlurTextureID3 = gaussianBlurFilter3->render();
     
-    softLightFilter->setSrcTextureID(softProcessTextureID);
-    softLightFilter->setOverlayTextureID(gaussianBlurTextureID3);
+    ((MTFilterSoftLight *)softLightFilter)->setSrcTextureID(softProcessTextureID);
+    ((MTFilterSoftLight *)softLightFilter)->setOverlayTextureID(gaussianBlurTextureID3);
     return softLightFilter->render();
 }
 
@@ -98,8 +102,8 @@ void MTFilterToonifyBackground::setOutsideTextureAndFbo(unsigned textureIDOutsid
 }
 
 void MTFilterToonifyBackground::setSrcTextureID(unsigned srcTextureID) {
-    gaussianBlurFilter1->setSrcTextureID(srcTextureID);
-    softProcessFilter->setSrcTextureID(srcTextureID);
+    ((MTFilterGaussianBlur *)gaussianBlurFilter1)->setSrcTextureID(srcTextureID);
+    ((MTFilterSoftProcess *)softProcessFilter)->setSrcTextureID(srcTextureID);
 }
 
 ToonifyBackgroundConfig MTFilterToonifyBackground::getConfig() {
