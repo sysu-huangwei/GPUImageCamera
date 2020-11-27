@@ -109,5 +109,5 @@ unsigned MTFilterBase::render() {
 void MTFilterBase::setOutsideTextureAndFbo(unsigned textureIDOutside, unsigned fboIDOutside) {
     this->textureIDOutside = textureIDOutside;
     this->fboIDOutside = fboIDOutside;
-    isRenderToOutside = true;
+    isRenderToOutside = textureIDOutside != 0 && fboIDOutside != 0;
 }
