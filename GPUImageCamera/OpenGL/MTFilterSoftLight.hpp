@@ -15,8 +15,8 @@ class MTFilterSoftLight : public MTFilterBase {
 public:
     MTFilterSoftLight();
     ~MTFilterSoftLight();
-    virtual void init();
-    virtual unsigned render();
+    virtual void init() override;
+    virtual unsigned render() override;
     
     void setSrcTextureID(unsigned srcTextureID);
     void setOverlayTextureID(unsigned overlayTextureID);

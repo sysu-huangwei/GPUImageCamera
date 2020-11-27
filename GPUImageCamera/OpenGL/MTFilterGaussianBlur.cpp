@@ -21,6 +21,11 @@ void MTFilterGaussianBlur::init() {
     verticalFilter.init();
 }
 
+void MTFilterGaussianBlur::release() {
+    horizonalFilter.release();
+    verticalFilter.release();
+}
+
 void MTFilterGaussianBlur::resize(int width, int height) {
     horizonalFilter.resize(width, height);
     verticalFilter.resize(width, height);

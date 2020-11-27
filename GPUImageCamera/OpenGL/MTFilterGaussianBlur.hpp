@@ -16,11 +16,12 @@ class MTFilterGaussianBlur : public MTFilterBase {
 public:
     MTFilterGaussianBlur();
     ~MTFilterGaussianBlur();
-    virtual void init();
-    virtual void resize(int width, int height);
-    virtual unsigned render();
+    virtual void init() override;
+    virtual void release() override;
+    virtual void resize(int width, int height) override;
+    virtual unsigned render() override;
     
-    virtual void setOutsideTextureAndFbo(unsigned textureIDOutside, unsigned fboIDOutside);
+    virtual void setOutsideTextureAndFbo(unsigned textureIDOutside, unsigned fboIDOutside) override;
     
     void setSrcTextureID(unsigned srcTextureID);
     

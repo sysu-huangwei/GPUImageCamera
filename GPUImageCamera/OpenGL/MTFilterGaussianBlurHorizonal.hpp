@@ -15,9 +15,9 @@ class MTFilterGaussianBlurHorizonal : public MTFilterBase {
 public:
     MTFilterGaussianBlurHorizonal();
     ~MTFilterGaussianBlurHorizonal();
-    virtual void init();
-    virtual void resize(int width, int height);
-    virtual unsigned render();
+    virtual void init() override;
+    virtual void resize(int width, int height) override;
+    virtual unsigned render() override;
     
     void setSrcTextureID(unsigned srcTextureID);
     

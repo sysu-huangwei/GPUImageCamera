@@ -15,9 +15,9 @@ class MTFilterGradient : public MTFilterBase {
 public:
     MTFilterGradient();
     ~MTFilterGradient();
-    virtual void init();
-    virtual void resize(int width, int height);
-    virtual unsigned render();
+    virtual void init() override;
+    virtual void resize(int width, int height) override;
+    virtual unsigned render() override;
     
     void setSrcTextureID(unsigned srcTextureID);
     

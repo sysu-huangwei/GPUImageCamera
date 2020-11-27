@@ -17,9 +17,9 @@ class MTFilterSoftProcess : public MTFilterBase {
 public:
     MTFilterSoftProcess();
     ~MTFilterSoftProcess();
-    virtual void init();
-    virtual void resize(int width, int height);
-    virtual unsigned render();
+    virtual void init() override;
+    virtual void resize(int width, int height) override;
+    virtual unsigned render() override;
     
     void setSrcTextureID(unsigned srcTextureID);
     void setProcessTextureID(unsigned processTextureID);

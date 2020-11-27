@@ -15,8 +15,8 @@ class MTFilterCopy : public MTFilterBase {
 public:
     MTFilterCopy();
     ~MTFilterCopy();
-    virtual void init();
-    virtual unsigned render();
+    virtual void init() override;
+    virtual unsigned render() override;
     
     void setSrcTextureID(unsigned srcTextureID);
     
