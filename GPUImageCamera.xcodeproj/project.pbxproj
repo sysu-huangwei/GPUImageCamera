@@ -7,15 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47476E547884AF2C766E7672 /* libPods-GPUImageCamera.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 379CAF6597E65FCFF1462E0A /* libPods-GPUImageCamera.a */; };
 		C522479C221FEC9100FBE21D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C522479B221FEC9100FBE21D /* AppDelegate.m */; };
 		C522479F221FEC9100FBE21D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C522479E221FEC9100FBE21D /* ViewController.m */; };
 		C52247A2221FEC9100FBE21D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C52247A0221FEC9100FBE21D /* Main.storyboard */; };
 		C52247A4221FEC9300FBE21D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C52247A3221FEC9300FBE21D /* Assets.xcassets */; };
-		C52247A7221FEC9300FBE21D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C52247A5221FEC9300FBE21D /* LaunchScreen.storyboard */; };
 		C52247AA221FEC9300FBE21D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C52247A9221FEC9300FBE21D /* main.m */; };
+		C5EF9D662224253000F57B2C /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EF9D642224253000F57B2C /* CameraViewController.m */; };
+		C5EF9D672224253000F57B2C /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5EF9D652224253000F57B2C /* CameraViewController.xib */; };
+		C5EF9D6A222428B500F57B2C /* CameraController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EF9D69222428B500F57B2C /* CameraController.m */; };
+		FCA4AE482567B1B0006AE2BA /* GPUImageOilFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE472567B1B0006AE2BA /* GPUImageOilFilter.m */; };
+		FCA4AE4D256E4125006AE2BA /* GPUImageMTGaussianHorizonalBlurFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE4C256E4125006AE2BA /* GPUImageMTGaussianHorizonalBlurFilter.m */; };
+		FCA4AE50256E44D8006AE2BA /* GPUImageMTGaussianVerticalBlurFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE4F256E44D8006AE2BA /* GPUImageMTGaussianVerticalBlurFilter.m */; };
+		FCA4AE53256E4541006AE2BA /* GPUImageMTGaussianBaseBlurFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE52256E4540006AE2BA /* GPUImageMTGaussianBaseBlurFilter.m */; };
+		FCA4AE56256E4983006AE2BA /* GPUImageMTGaussianBlurFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE55256E4983006AE2BA /* GPUImageMTGaussianBlurFilter.m */; };
+		FCA4AE59256E51D0006AE2BA /* GPUImageMTGradientFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE58256E51D0006AE2BA /* GPUImageMTGradientFilter.m */; };
+		FCA4AE5C256E54C1006AE2BA /* GPUImageMTSoftProcessFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE5B256E54C1006AE2BA /* GPUImageMTSoftProcessFilter.m */; };
+		FCA4AE5F256E74A6006AE2BA /* GPUImageMTSoftLightFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE5E256E74A6006AE2BA /* GPUImageMTSoftLightFilter.m */; };
+		FCA4AE63256F8411006AE2BA /* BaseGLUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE61256F8411006AE2BA /* BaseGLUtils.cpp */; };
+		FCA4AE67256F8468006AE2BA /* BaseLog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE65256F8467006AE2BA /* BaseLog.cpp */; };
+		FCA4AE6A256F8841006AE2BA /* MTFilterBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE68256F8841006AE2BA /* MTFilterBase.cpp */; };
+		FCA4AE6D256F95A0006AE2BA /* MTFilterCopy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE6B256F95A0006AE2BA /* MTFilterCopy.cpp */; };
+		FCA4AE70256F9D2A006AE2BA /* GPUImageToonifyBackgroundFilter.mm in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE6F256F9D2A006AE2BA /* GPUImageToonifyBackgroundFilter.mm */; };
+		FCA4AE73256FA63D006AE2BA /* MTFilterGaussianBlurHorizonal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE71256FA63D006AE2BA /* MTFilterGaussianBlurHorizonal.cpp */; };
+		FCA4AE76256FAD49006AE2BA /* MTFilterGaussianBlurVertical.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE74256FAD49006AE2BA /* MTFilterGaussianBlurVertical.cpp */; };
+		FCA4AE79256FADB7006AE2BA /* MTFilterGaussianBlur.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE77256FADB7006AE2BA /* MTFilterGaussianBlur.cpp */; };
+		FCA4AE7C256FCF86006AE2BA /* MTFilterGradient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE7A256FCF86006AE2BA /* MTFilterGradient.cpp */; };
+		FCA4AE7F256FD36C006AE2BA /* MTFilterSoftProcess.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE7D256FD36C006AE2BA /* MTFilterSoftProcess.cpp */; };
+		FCA4AE82256FDB30006AE2BA /* MTFilterSoftLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE80256FDB30006AE2BA /* MTFilterSoftLight.cpp */; };
+		FCA4AE872570AB27006AE2BA /* MTFilterToonifyBackground.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FCA4AE852570AB27006AE2BA /* MTFilterToonifyBackground.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		379CAF6597E65FCFF1462E0A /* libPods-GPUImageCamera.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GPUImageCamera.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE6314E5A6BE162BFC64CC3C /* Pods-GPUImageCamera.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUImageCamera.debug.xcconfig"; path = "Target Support Files/Pods-GPUImageCamera/Pods-GPUImageCamera.debug.xcconfig"; sourceTree = "<group>"; };
 		C5224797221FEC9100FBE21D /* GPUImageCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPUImageCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C522479A221FEC9100FBE21D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C522479B221FEC9100FBE21D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -23,9 +48,55 @@
 		C522479E221FEC9100FBE21D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C52247A1221FEC9100FBE21D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C52247A3221FEC9300FBE21D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C52247A6221FEC9300FBE21D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C52247A8221FEC9300FBE21D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C52247A9221FEC9300FBE21D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C5EF9D632224253000F57B2C /* CameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		C5EF9D642224253000F57B2C /* CameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		C5EF9D652224253000F57B2C /* CameraViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
+		C5EF9D68222428B500F57B2C /* CameraController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraController.h; sourceTree = "<group>"; };
+		C5EF9D69222428B500F57B2C /* CameraController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraController.m; sourceTree = "<group>"; };
+		CD951F3FB95795B5753A57CB /* Pods-GPUImageCamera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GPUImageCamera.release.xcconfig"; path = "Target Support Files/Pods-GPUImageCamera/Pods-GPUImageCamera.release.xcconfig"; sourceTree = "<group>"; };
+		FCA4AE462567B1B0006AE2BA /* GPUImageOilFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageOilFilter.h; sourceTree = "<group>"; };
+		FCA4AE472567B1B0006AE2BA /* GPUImageOilFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageOilFilter.m; sourceTree = "<group>"; };
+		FCA4AE4B256E4125006AE2BA /* GPUImageMTGaussianHorizonalBlurFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageMTGaussianHorizonalBlurFilter.h; sourceTree = "<group>"; };
+		FCA4AE4C256E4125006AE2BA /* GPUImageMTGaussianHorizonalBlurFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageMTGaussianHorizonalBlurFilter.m; sourceTree = "<group>"; };
+		FCA4AE4E256E44D8006AE2BA /* GPUImageMTGaussianVerticalBlurFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageMTGaussianVerticalBlurFilter.h; sourceTree = "<group>"; };
+		FCA4AE4F256E44D8006AE2BA /* GPUImageMTGaussianVerticalBlurFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageMTGaussianVerticalBlurFilter.m; sourceTree = "<group>"; };
+		FCA4AE51256E4540006AE2BA /* GPUImageMTGaussianBaseBlurFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageMTGaussianBaseBlurFilter.h; sourceTree = "<group>"; };
+		FCA4AE52256E4540006AE2BA /* GPUImageMTGaussianBaseBlurFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageMTGaussianBaseBlurFilter.m; sourceTree = "<group>"; };
+		FCA4AE54256E4983006AE2BA /* GPUImageMTGaussianBlurFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageMTGaussianBlurFilter.h; sourceTree = "<group>"; };
+		FCA4AE55256E4983006AE2BA /* GPUImageMTGaussianBlurFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageMTGaussianBlurFilter.m; sourceTree = "<group>"; };
+		FCA4AE57256E51D0006AE2BA /* GPUImageMTGradientFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageMTGradientFilter.h; sourceTree = "<group>"; };
+		FCA4AE58256E51D0006AE2BA /* GPUImageMTGradientFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageMTGradientFilter.m; sourceTree = "<group>"; };
+		FCA4AE5A256E54C1006AE2BA /* GPUImageMTSoftProcessFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageMTSoftProcessFilter.h; sourceTree = "<group>"; };
+		FCA4AE5B256E54C1006AE2BA /* GPUImageMTSoftProcessFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageMTSoftProcessFilter.m; sourceTree = "<group>"; };
+		FCA4AE5D256E74A6006AE2BA /* GPUImageMTSoftLightFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageMTSoftLightFilter.h; sourceTree = "<group>"; };
+		FCA4AE5E256E74A6006AE2BA /* GPUImageMTSoftLightFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageMTSoftLightFilter.m; sourceTree = "<group>"; };
+		FCA4AE61256F8411006AE2BA /* BaseGLUtils.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BaseGLUtils.cpp; sourceTree = "<group>"; };
+		FCA4AE62256F8411006AE2BA /* BaseGLUtils.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BaseGLUtils.hpp; sourceTree = "<group>"; };
+		FCA4AE64256F8467006AE2BA /* BaseDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDefine.h; sourceTree = "<group>"; };
+		FCA4AE65256F8467006AE2BA /* BaseLog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseLog.cpp; sourceTree = "<group>"; };
+		FCA4AE66256F8467006AE2BA /* BaseLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseLog.h; sourceTree = "<group>"; };
+		FCA4AE68256F8841006AE2BA /* MTFilterBase.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MTFilterBase.cpp; sourceTree = "<group>"; };
+		FCA4AE69256F8841006AE2BA /* MTFilterBase.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MTFilterBase.hpp; sourceTree = "<group>"; };
+		FCA4AE6B256F95A0006AE2BA /* MTFilterCopy.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MTFilterCopy.cpp; sourceTree = "<group>"; };
+		FCA4AE6C256F95A0006AE2BA /* MTFilterCopy.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MTFilterCopy.hpp; sourceTree = "<group>"; };
+		FCA4AE6E256F9D2A006AE2BA /* GPUImageToonifyBackgroundFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageToonifyBackgroundFilter.h; sourceTree = "<group>"; };
+		FCA4AE6F256F9D2A006AE2BA /* GPUImageToonifyBackgroundFilter.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = GPUImageToonifyBackgroundFilter.mm; sourceTree = "<group>"; };
+		FCA4AE71256FA63D006AE2BA /* MTFilterGaussianBlurHorizonal.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MTFilterGaussianBlurHorizonal.cpp; sourceTree = "<group>"; };
+		FCA4AE72256FA63D006AE2BA /* MTFilterGaussianBlurHorizonal.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MTFilterGaussianBlurHorizonal.hpp; sourceTree = "<group>"; };
+		FCA4AE74256FAD49006AE2BA /* MTFilterGaussianBlurVertical.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MTFilterGaussianBlurVertical.cpp; sourceTree = "<group>"; };
+		FCA4AE75256FAD49006AE2BA /* MTFilterGaussianBlurVertical.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MTFilterGaussianBlurVertical.hpp; sourceTree = "<group>"; };
+		FCA4AE77256FADB7006AE2BA /* MTFilterGaussianBlur.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MTFilterGaussianBlur.cpp; sourceTree = "<group>"; };
+		FCA4AE78256FADB7006AE2BA /* MTFilterGaussianBlur.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MTFilterGaussianBlur.hpp; sourceTree = "<group>"; };
+		FCA4AE7A256FCF86006AE2BA /* MTFilterGradient.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MTFilterGradient.cpp; sourceTree = "<group>"; };
+		FCA4AE7B256FCF86006AE2BA /* MTFilterGradient.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MTFilterGradient.hpp; sourceTree = "<group>"; };
+		FCA4AE7D256FD36C006AE2BA /* MTFilterSoftProcess.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MTFilterSoftProcess.cpp; sourceTree = "<group>"; };
+		FCA4AE7E256FD36C006AE2BA /* MTFilterSoftProcess.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MTFilterSoftProcess.hpp; sourceTree = "<group>"; };
+		FCA4AE80256FDB30006AE2BA /* MTFilterSoftLight.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MTFilterSoftLight.cpp; sourceTree = "<group>"; };
+		FCA4AE81256FDB30006AE2BA /* MTFilterSoftLight.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MTFilterSoftLight.hpp; sourceTree = "<group>"; };
+		FCA4AE852570AB27006AE2BA /* MTFilterToonifyBackground.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MTFilterToonifyBackground.cpp; sourceTree = "<group>"; };
+		FCA4AE862570AB27006AE2BA /* MTFilterToonifyBackground.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MTFilterToonifyBackground.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +104,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47476E547884AF2C766E7672 /* libPods-GPUImageCamera.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4673604AF2A703E1AE098D08 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AE6314E5A6BE162BFC64CC3C /* Pods-GPUImageCamera.debug.xcconfig */,
+				CD951F3FB95795B5753A57CB /* Pods-GPUImageCamera.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		C522478E221FEC9100FBE21D = {
 			isa = PBXGroup;
 			children = (
 				C5224799221FEC9100FBE21D /* GPUImageCamera */,
 				C5224798221FEC9100FBE21D /* Products */,
+				4673604AF2A703E1AE098D08 /* Pods */,
+				FA80F674B312E443488D6A77 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,17 +141,78 @@
 		C5224799221FEC9100FBE21D /* GPUImageCamera */ = {
 			isa = PBXGroup;
 			children = (
+				FCA4AE60256F8369006AE2BA /* OpenGL */,
 				C522479A221FEC9100FBE21D /* AppDelegate.h */,
 				C522479B221FEC9100FBE21D /* AppDelegate.m */,
 				C522479D221FEC9100FBE21D /* ViewController.h */,
 				C522479E221FEC9100FBE21D /* ViewController.m */,
 				C52247A0221FEC9100FBE21D /* Main.storyboard */,
 				C52247A3221FEC9300FBE21D /* Assets.xcassets */,
-				C52247A5221FEC9300FBE21D /* LaunchScreen.storyboard */,
 				C52247A8221FEC9300FBE21D /* Info.plist */,
 				C52247A9221FEC9300FBE21D /* main.m */,
+				C5EF9D632224253000F57B2C /* CameraViewController.h */,
+				C5EF9D642224253000F57B2C /* CameraViewController.m */,
+				C5EF9D652224253000F57B2C /* CameraViewController.xib */,
+				C5EF9D68222428B500F57B2C /* CameraController.h */,
+				C5EF9D69222428B500F57B2C /* CameraController.m */,
+				FCA4AE462567B1B0006AE2BA /* GPUImageOilFilter.h */,
+				FCA4AE472567B1B0006AE2BA /* GPUImageOilFilter.m */,
+				FCA4AE4B256E4125006AE2BA /* GPUImageMTGaussianHorizonalBlurFilter.h */,
+				FCA4AE4C256E4125006AE2BA /* GPUImageMTGaussianHorizonalBlurFilter.m */,
+				FCA4AE4E256E44D8006AE2BA /* GPUImageMTGaussianVerticalBlurFilter.h */,
+				FCA4AE4F256E44D8006AE2BA /* GPUImageMTGaussianVerticalBlurFilter.m */,
+				FCA4AE51256E4540006AE2BA /* GPUImageMTGaussianBaseBlurFilter.h */,
+				FCA4AE52256E4540006AE2BA /* GPUImageMTGaussianBaseBlurFilter.m */,
+				FCA4AE54256E4983006AE2BA /* GPUImageMTGaussianBlurFilter.h */,
+				FCA4AE55256E4983006AE2BA /* GPUImageMTGaussianBlurFilter.m */,
+				FCA4AE57256E51D0006AE2BA /* GPUImageMTGradientFilter.h */,
+				FCA4AE58256E51D0006AE2BA /* GPUImageMTGradientFilter.m */,
+				FCA4AE5A256E54C1006AE2BA /* GPUImageMTSoftProcessFilter.h */,
+				FCA4AE5B256E54C1006AE2BA /* GPUImageMTSoftProcessFilter.m */,
+				FCA4AE5D256E74A6006AE2BA /* GPUImageMTSoftLightFilter.h */,
+				FCA4AE5E256E74A6006AE2BA /* GPUImageMTSoftLightFilter.m */,
+				FCA4AE6E256F9D2A006AE2BA /* GPUImageToonifyBackgroundFilter.h */,
+				FCA4AE6F256F9D2A006AE2BA /* GPUImageToonifyBackgroundFilter.mm */,
 			);
 			path = GPUImageCamera;
+			sourceTree = "<group>";
+		};
+		FA80F674B312E443488D6A77 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				379CAF6597E65FCFF1462E0A /* libPods-GPUImageCamera.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FCA4AE60256F8369006AE2BA /* OpenGL */ = {
+			isa = PBXGroup;
+			children = (
+				FCA4AE64256F8467006AE2BA /* BaseDefine.h */,
+				FCA4AE65256F8467006AE2BA /* BaseLog.cpp */,
+				FCA4AE66256F8467006AE2BA /* BaseLog.h */,
+				FCA4AE61256F8411006AE2BA /* BaseGLUtils.cpp */,
+				FCA4AE62256F8411006AE2BA /* BaseGLUtils.hpp */,
+				FCA4AE68256F8841006AE2BA /* MTFilterBase.cpp */,
+				FCA4AE69256F8841006AE2BA /* MTFilterBase.hpp */,
+				FCA4AE6B256F95A0006AE2BA /* MTFilterCopy.cpp */,
+				FCA4AE6C256F95A0006AE2BA /* MTFilterCopy.hpp */,
+				FCA4AE71256FA63D006AE2BA /* MTFilterGaussianBlurHorizonal.cpp */,
+				FCA4AE72256FA63D006AE2BA /* MTFilterGaussianBlurHorizonal.hpp */,
+				FCA4AE74256FAD49006AE2BA /* MTFilterGaussianBlurVertical.cpp */,
+				FCA4AE75256FAD49006AE2BA /* MTFilterGaussianBlurVertical.hpp */,
+				FCA4AE77256FADB7006AE2BA /* MTFilterGaussianBlur.cpp */,
+				FCA4AE78256FADB7006AE2BA /* MTFilterGaussianBlur.hpp */,
+				FCA4AE7A256FCF86006AE2BA /* MTFilterGradient.cpp */,
+				FCA4AE7B256FCF86006AE2BA /* MTFilterGradient.hpp */,
+				FCA4AE7D256FD36C006AE2BA /* MTFilterSoftProcess.cpp */,
+				FCA4AE7E256FD36C006AE2BA /* MTFilterSoftProcess.hpp */,
+				FCA4AE80256FDB30006AE2BA /* MTFilterSoftLight.cpp */,
+				FCA4AE81256FDB30006AE2BA /* MTFilterSoftLight.hpp */,
+				FCA4AE852570AB27006AE2BA /* MTFilterToonifyBackground.cpp */,
+				FCA4AE862570AB27006AE2BA /* MTFilterToonifyBackground.hpp */,
+			);
+			path = OpenGL;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -78,9 +222,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C52247AD221FEC9300FBE21D /* Build configuration list for PBXNativeTarget "GPUImageCamera" */;
 			buildPhases = (
+				BD6FF3DFC194DBB78589A0F1 /* [CP] Check Pods Manifest.lock */,
 				C5224793221FEC9100FBE21D /* Sources */,
 				C5224794221FEC9100FBE21D /* Frameworks */,
 				C5224795221FEC9100FBE21D /* Resources */,
+				CDF9BBC07B604AD246035E03 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -128,7 +274,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C52247A7221FEC9300FBE21D /* LaunchScreen.storyboard in Resources */,
+				C5EF9D672224253000F57B2C /* CameraViewController.xib in Resources */,
 				C52247A4221FEC9300FBE21D /* Assets.xcassets in Resources */,
 				C52247A2221FEC9100FBE21D /* Main.storyboard in Resources */,
 			);
@@ -136,14 +282,91 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		BD6FF3DFC194DBB78589A0F1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GPUImageCamera-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CDF9BBC07B604AD246035E03 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GPUImageCamera/Pods-GPUImageCamera-resources.sh",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_amatorka.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_miss_etikate.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_1.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_2.png",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_amatorka.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_miss_etikate.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_1.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_2.png",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GPUImageCamera/Pods-GPUImageCamera-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C5224793221FEC9100FBE21D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCA4AE67256F8468006AE2BA /* BaseLog.cpp in Sources */,
+				FCA4AE872570AB27006AE2BA /* MTFilterToonifyBackground.cpp in Sources */,
+				FCA4AE82256FDB30006AE2BA /* MTFilterSoftLight.cpp in Sources */,
+				FCA4AE70256F9D2A006AE2BA /* GPUImageToonifyBackgroundFilter.mm in Sources */,
+				C5EF9D662224253000F57B2C /* CameraViewController.m in Sources */,
+				FCA4AE63256F8411006AE2BA /* BaseGLUtils.cpp in Sources */,
+				FCA4AE76256FAD49006AE2BA /* MTFilterGaussianBlurVertical.cpp in Sources */,
+				FCA4AE79256FADB7006AE2BA /* MTFilterGaussianBlur.cpp in Sources */,
+				FCA4AE6A256F8841006AE2BA /* MTFilterBase.cpp in Sources */,
+				FCA4AE6D256F95A0006AE2BA /* MTFilterCopy.cpp in Sources */,
+				FCA4AE50256E44D8006AE2BA /* GPUImageMTGaussianVerticalBlurFilter.m in Sources */,
+				FCA4AE482567B1B0006AE2BA /* GPUImageOilFilter.m in Sources */,
 				C522479F221FEC9100FBE21D /* ViewController.m in Sources */,
+				FCA4AE5F256E74A6006AE2BA /* GPUImageMTSoftLightFilter.m in Sources */,
 				C52247AA221FEC9300FBE21D /* main.m in Sources */,
+				FCA4AE5C256E54C1006AE2BA /* GPUImageMTSoftProcessFilter.m in Sources */,
+				C5EF9D6A222428B500F57B2C /* CameraController.m in Sources */,
+				FCA4AE59256E51D0006AE2BA /* GPUImageMTGradientFilter.m in Sources */,
 				C522479C221FEC9100FBE21D /* AppDelegate.m in Sources */,
+				FCA4AE53256E4541006AE2BA /* GPUImageMTGaussianBaseBlurFilter.m in Sources */,
+				FCA4AE73256FA63D006AE2BA /* MTFilterGaussianBlurHorizonal.cpp in Sources */,
+				FCA4AE4D256E4125006AE2BA /* GPUImageMTGaussianHorizonalBlurFilter.m in Sources */,
+				FCA4AE7C256FCF86006AE2BA /* MTFilterGradient.cpp in Sources */,
+				FCA4AE56256E4983006AE2BA /* GPUImageMTGaussianBlurFilter.m in Sources */,
+				FCA4AE7F256FD36C006AE2BA /* MTFilterSoftProcess.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,14 +379,6 @@
 				C52247A1221FEC9100FBE21D /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		C52247A5221FEC9300FBE21D /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C52247A6221FEC9300FBE21D /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -283,34 +498,42 @@
 		};
 		C52247AE221FEC9300FBE21D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE6314E5A6BE162BFC64CC3C /* Pods-GPUImageCamera.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 68A6PPJ4F3;
+				DEVELOPMENT_TEAM = 5WJXNKDZ83;
 				INFOPLIST_FILE = GPUImageCamera/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = meitu.GPUImageCamera;
+				PRODUCT_BUNDLE_IDENTIFIER = com.meitu.hw3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		C52247AF221FEC9300FBE21D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD951F3FB95795B5753A57CB /* Pods-GPUImageCamera.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 68A6PPJ4F3;
+				DEVELOPMENT_TEAM = 5WJXNKDZ83;
 				INFOPLIST_FILE = GPUImageCamera/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = meitu.GPUImageCamera;
+				PRODUCT_BUNDLE_IDENTIFIER = com.meitu.hw3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
